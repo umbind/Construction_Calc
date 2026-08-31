@@ -292,11 +292,12 @@
         <span class="text-slate-500">&bull; &copy; 2026</span>
       </div>
 
-      <div class="flex items-center gap-4 text-slate-400 text-xs">
+      <div class="flex flex-wrap items-center gap-4 text-slate-400 text-xs">
         <h4 class="sr-only">Quick Links &amp; Policies</h4>
-        <button class="open-about-modal hover:text-amber-400 transition-colors" data-i18n="ui.aboutTitle">About &amp; IS Standards</button>
-        <button class="open-privacy-modal hover:text-amber-400 transition-colors" data-i18n="ui.privacyTitle">Privacy Policy</button>
-        <button class="open-disclaimer-modal hover:text-amber-400 transition-colors" data-i18n="ui.disclaimerTitle">Disclaimer</button>
+        <button class="open-guide-modal hover:text-amber-400 font-semibold text-amber-400/90 transition-colors flex items-center gap-1 cursor-pointer"><span>📖</span> <span>How to Use</span></button>
+        <button class="open-about-modal hover:text-amber-400 transition-colors cursor-pointer" data-i18n="ui.aboutTitle">About &amp; IS Standards</button>
+        <button class="open-privacy-modal hover:text-amber-400 transition-colors cursor-pointer" data-i18n="ui.privacyTitle">Privacy Policy</button>
+        <button class="open-disclaimer-modal hover:text-amber-400 transition-colors cursor-pointer" data-i18n="ui.disclaimerTitle">Disclaimer</button>
       </div>
     </div>
   </footer>
@@ -426,6 +427,56 @@
       
       <div class="pt-4 border-t border-slate-800 mt-4 flex justify-end">
         <button class="close-modal-btn bg-slate-800 hover:bg-slate-700 text-white font-semibold px-4 py-1.5 rounded-xl text-xs" data-i18n="ui.closeBtn">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- How to Use / User Guide Modal -->
+  <div id="guide-modal" class="app-modal hidden fixed inset-0 z-50 modal-backdrop bg-slate-950/80 backdrop-blur-sm items-center justify-center p-4">
+    <div class="bg-slate-900 border border-slate-800 rounded-3xl w-full max-w-2xl shadow-2xl p-6 flex flex-col max-h-[85vh] overflow-y-auto" onclick="event.stopPropagation();">
+      <div class="flex items-center justify-between pb-3 border-b border-slate-800 mb-4">
+        <div class="flex items-center gap-2">
+          <span class="text-lg">📘</span>
+          <h3 class="text-base font-bold text-white">How to Use Plan &amp; BuildMetric India</h3>
+        </div>
+        <button class="close-modal-btn text-slate-400 hover:text-white p-1">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+        </button>
+      </div>
+      
+      <div class="text-xs text-slate-300 space-y-3.5 leading-relaxed">
+        <div class="p-3 bg-slate-800/80 rounded-2xl border border-slate-700/80">
+          <h4 class="font-bold text-amber-400 mb-1 text-xs">🚀 1. Switch Between 11 Calculators in 1 Click</h4>
+          <p class="text-slate-300">Use the <strong>Quick Calculator Switcher Bar</strong> directly above the form to jump instantly between Concrete, Drywall/Plaster, Vitrified Tiles, Brickwork/Steel, Painting, Roofing, Rental Yield, Home Loan EMI, Capital Gains Tax, and HVAC Tonnage.</p>
+        </div>
+
+        <div class="p-3 bg-slate-800/80 rounded-2xl border border-slate-700/80">
+          <h4 class="font-bold text-amber-400 mb-1 text-xs">⚡ 2. Instant Scenario Presets</h4>
+          <p class="text-slate-300">Click any preset pill (e.g. <em>Standard 1000 sq.ft 5" Roof Slab</em>, <em>2 BHK Flat Painting</em>) to pre-fill standard Indian dimensions and IS 456 mix specifications automatically.</p>
+        </div>
+
+        <div class="p-3 bg-slate-800/80 rounded-2xl border border-slate-700/80">
+          <h4 class="font-bold text-amber-400 mb-1 text-xs">🌐 3. All 11 Indian Regional Languages</h4>
+          <p class="text-slate-300">Tap the <strong>🌐 Language</strong> button in the top header to instantly switch between English, हिन्दी (Hindi), বাংলা, తెలుగు, मराठी, தமிழ், ગુજરાતી, ಕನ್ನಡ, മലയാളം, ਪੰਜਾਬੀ, and ଓଡ଼ିଆ.</p>
+        </div>
+
+        <div class="p-3 bg-slate-800/80 rounded-2xl border border-slate-700/80">
+          <h4 class="font-bold text-amber-400 mb-1 text-xs">📋 4. Copy Summary &amp; Export CSV Takeoff</h4>
+          <p class="text-slate-300">Tap <strong>Copy</strong> to copy formatted text ready for WhatsApp/Client proposals, or tap <strong>CSV</strong> to download an itemized procurement takeoff spreadsheet.</p>
+        </div>
+
+        <div class="p-3 bg-slate-800/80 rounded-2xl border border-slate-700/80">
+          <h4 class="font-bold text-amber-400 mb-1 text-xs">📱 5. Works 100% Offline (PWA)</h4>
+          <p class="text-slate-300">Tap your browser menu and choose <strong>"Add to Home Screen"</strong> or <strong>"Install App"</strong>. You can calculate on remote construction sites with zero internet connection.</p>
+        </div>
+      </div>
+
+      <div class="pt-4 border-t border-slate-800 mt-4 flex items-center justify-between">
+        <a href="https://github.com/umbind/Construction_Calc/blob/main/HOW_TO_USE.md" target="_blank" rel="noopener noreferrer" class="text-xs font-bold text-amber-400 hover:underline flex items-center gap-1">
+          <span>Read Full User Manual on GitHub</span>
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+        </a>
+        <button class="close-modal-btn bg-slate-800 hover:bg-slate-700 text-white font-semibold px-4 py-1.5 rounded-xl text-xs" data-i18n="ui.closeBtn">Got It!</button>
       </div>
     </div>
   </div>

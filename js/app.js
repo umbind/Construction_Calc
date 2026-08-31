@@ -1488,6 +1488,7 @@ export class App {
 
   bindLegalModals() {
     const modalTriggers = {
+      'open-guide-modal': 'guide-modal',
       'open-about-modal': 'about-modal',
       'open-privacy-modal': 'privacy-modal',
       'open-disclaimer-modal': 'disclaimer-modal'
