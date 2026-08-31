@@ -228,6 +228,7 @@ export class App {
     this.renderToolCardsGrid();
     this.renderActiveCalculator();
     this.updateBreadcrumbs();
+    this.renderGuideModal();
     this.renderAuthorityResources();
 
     const selectedLang = (languageGroups.indian || []).find(l => l.code === langCode);
@@ -518,6 +519,7 @@ export class App {
     this.renderActiveCalculator();
     this.renderFavoritesBar();
     this.updateBreadcrumbs();
+    this.renderGuideModal();
     this.renderAuthorityResources();
 
     const calcSection = document.getElementById('active-calculator-section');
@@ -1484,6 +1486,157 @@ export class App {
     });
 
     grid.innerHTML = html;
+  }
+
+
+  renderGuideModal() {
+    const titleEl = document.getElementById('guide-modal-title');
+    const bodyEl = document.getElementById('guide-modal-body');
+    const linkEl = document.getElementById('guide-github-link');
+    if (!bodyEl) return;
+
+    const lang = getLanguage();
+    const guides = {
+      en: {
+        title: "How to Use Plan & BuildMetric India",
+        file: "HOW_TO_USE.md",
+        steps: [
+          ["🚀 1. Switch Between 11 Calculators in 1 Click", "Use the Quick Calculator Switcher Bar directly above the form to jump instantly between Concrete, Drywall/Plaster, Vitrified Tiles, Brickwork/Steel, Painting, Roofing, Rental Yield, Home Loan EMI, Capital Gains Tax, and HVAC Tonnage."],
+          ["⚡ 2. Instant Scenario Presets", "Click any preset pill (e.g. Standard 1000 sq.ft 5\" Roof Slab, 2 BHK Flat Painting) to pre-fill standard Indian dimensions and IS 456 mix specifications automatically."],
+          ["🌐 3. All 11 Indian Regional Languages", "Tap the 🌐 Language button in the top header to instantly switch between English, हिन्दी, বাংলা, తెలుగు, मराठी, தமிழ், ગુજરાતી, ಕನ್ನಡ, മലയാളം, ਪੰਜਾਬੀ, and ଓଡ଼ିଆ."],
+          ["📋 4. Copy Summary & Export CSV Takeoff", "Tap Copy to copy formatted text ready for WhatsApp/Client proposals, or tap CSV to download an itemized procurement takeoff spreadsheet."],
+          ["📱 5. Works 100% Offline (PWA)", "Tap your browser menu and choose \"Add to Home Screen\" or \"Install App\". You can calculate on remote construction sites with zero internet connection."]
+        ]
+      },
+      hi: {
+        title: "प्लान एंड बिल्डमैट्रिक उपयोग निर्देशिका",
+        file: "docs/HOW_TO_USE_hi.md",
+        steps: [
+          ["🚀 1. 1-क्लिक कैलकुलेटर स्विचिंग", "फॉर्म के ठीक ऊपर 'क्विक कैलकुलेटर स्विचर बार' का उपयोग करके किसी भी कैलकुलेटर पर तुरंत जाएं।"],
+          ["⚡ 2. भारतीय परिदृश्य प्रीसेट", "मानक भारतीय आयामों (जैसे 1000 वर्ग फुट 5 इंच छत स्लैब, 2 BHK फ्लैट पेंटिंग) को स्वतः भरने के लिए प्रीसेट पर क्लिक करें।"],
+          ["🌐 3. 11 भारतीय क्षेत्रीय भाषाएं", "हेडर में '🌐 भाषा' बटन दबाकर अपनी पसंदीदा क्षेत्रीय भाषा चुनें।"],
+          ["📋 4. सारांश कॉपी करें और CSV एक्सपोर्ट करें", "व्हाट्सएप पर शेयर करने के लिए 'Copy' दबाएं या एक्सेल के लिए 'CSV' फाइल डाउनलोड करें।"],
+          ["📱 5. 100% ऑफलाइन PWA क्षमता", "ब्राउज़र मेनू में 'Add to Home Screen' चुनें। निर्माण स्थल पर बिना इंटरनेट के भी पूरा काम करता है।"]
+        ]
+      },
+      bn: {
+        title: "ব্যবহার নির্দেশিকা — প্ল্যান অ্যান্ড বিল্ডমেট্রিক",
+        file: "docs/HOW_TO_USE_bn.md",
+        steps: [
+          ["🚀 ১. এক ক্লিকে ক্যালকুলেটর পরিবর্তন", "টপ বারের কুইক সুইচার ব্যবহার করে নিমেষেই অন্য টুলে যান।"],
+          ["⚡ ২. ইন্ডিয়ান প্রিসেট", "স্ট্যান্ডার্ড মাপ অটো-ফিল করতে প্রিসেটে ক্লিক করুন।"],
+          ["🌐 ৩. ১১টি ভারতীয় আঞ্চলিক ভাষা", "🌐 ভাষা বোতামে ক্লিক করে যে কোনো ভাষা নির্বাচন করুন।"],
+          ["📋 ৪. কপি ও CSV এক্সপোর্ট", "হোয়াটসঅ্যাপে পাঠাতে Copy করুন বা এক্সেল CSV ডাউনলোড করুন।"],
+          ["📱 ৫. ১০০% অফলাইন PWA", "হোম স্ক্রিনে ইনস্টল করে ইন্টারনেট ছাড়াই সাইটে ব্যবহার করুন।"]
+        ]
+      },
+      te: {
+        title: "వినియోగదారు గైడ్ — ప్లాన్ & బిల్డ్‌మెట్రిక్",
+        file: "docs/HOW_TO_USE_te.md",
+        steps: [
+          ["🚀 1. ఒక్క క్లిక్‌తో కాలిక్యులేటర్ మార్చడం", "క్విక్ స్విచ్చర్ బార్ ఉపయోగించి సులభంగా మారండి."],
+          ["⚡ 2. భారతీయ దృశ్యాల ప్రీసెట్లు", "ప్రామాణిక కొలతలను నింపడానికి ప్రీసెట్లను నొక్కండి."],
+          ["🌐 3. 11 భారతీయ ప్రాంతీయ భాషలు", "🌐 భాష బటన్ నొక్కి కావలసిన భాషను ఎంచుకోండి."],
+          ["📋 4. కాపీ & CSV ఎగుమతి", "వాట్సాప్ కోసం కాపీ చేయండి లేదా ఎక్సెల్ CSV డౌన్‌లోడ్ చేసుకోండి."],
+          ["📱 5. 100% ఆఫ్‌లైన్ PWA", "ఇంటర్నెట్ లేకుండా నేరుగా సైట్‌లో ఉపయోగించుకోండి."]
+        ]
+      },
+      mr: {
+        title: "वापरकर्ता मार्गदर्शिका — प्लॅन अँड बिल्डमेट्रिक",
+        file: "docs/HOW_TO_USE_mr.md",
+        steps: [
+          ["🚀 १. एका क्लिकवर कॅल्क्युलेटर बदला", "वरिल क्विक स्विचरने त्वरित दुसऱ्या टूलवर जा."],
+          ["⚡ २. भारतीय प्रीसेट्स", "स्टँडर्ड मोजमाप भरण्यासाठी प्रीसेटवर क्लिक करा."],
+          ["🌐 ३. ११ भारतीय प्रादेशिक भाषा", "🌐 भाषा बटणावर क्लिक करून हवी ती भाषा निवडा."],
+          ["📋 ४. कॉपी आणि CSV एक्सपोर्ट", "व्हॉट्सअ‍ॅपवर पाठवण्यासाठी कॉपी करा किंवा एक्सेल CSV डाऊनलोड करा."],
+          ["📱 ५. १००% ऑफलाइन PWA", "इंटरनेटशिवाय बांधकाम जागेवर थेट वापरा."]
+        ]
+      },
+      ta: {
+        title: "பயனர் வழிகாட்டி — பிளான் & பில்ட்மெட்ரிக்",
+        file: "docs/HOW_TO_USE_ta.md",
+        steps: [
+          ["🚀 1. ஒரே கிளிக்கில் மாற்றுதல்", "குவிக் ஸ்விட்சர் பார் மூலம் எளிதாக மாறலாம்."],
+          ["⚡ 2. இந்திய அளவீட்டு ப்ரீசெட்கள்", "நிலையான அளவுகளை நிரப்ப ப்ரீசெட்டைத் தட்டவும்."],
+          ["🌐 3. 11 இந்திய பிராந்திய மொழிகள்", "🌐 மொழி பொத்தானை அழுத்தி உங்கள் மொழியைத் தேர்ந்தெடுக்கவும்."],
+          ["📋 4. காப்பி & CSV பதிவிறக்கம்", "வாட்ஸ்அப்பில் பகிர காப்பி செய்யவும் அல்லது எக்செல் CSV பதிவிறக்கவும்."],
+          ["📱 5. 100% ஆஃப்லைன் PWA", "இணையம் இல்லாமலும் கட்டுமான தளத்தில் பயன்படுத்தலாம்."]
+        ]
+      },
+      gu: {
+        title: "યુઝર ગાઈડ — પ્લાન એન્ડ બિલ્ડમેટ્રિક",
+        file: "docs/HOW_TO_USE_gu.md",
+        steps: [
+          ["🚀 ૧. એક ક્લિકમાં કેલ્ક્યુલેટર બદલો", "ટોચના ક્વિક સ્વિચરથી સરળતાથી ટૂલ બદલો."],
+          ["⚡ ૨. ભારતીય પ્રીસેટ્સ", "સ્ટાન્ડર્ડ માપ આપમેળે ભરવા પ્રીસેટ પર ક્લિક કરો."],
+          ["🌐 ૩. ૧૧ ભારતીય પ્રાદેશિક ભાષાઓ", "🌐 ભાષા બટન પર ક્લિક કરીને ભાષા પસંદ કરો."],
+          ["📋 ૪. કોપી અને CSV એક્સપોર્ટ", "વોટ્સએપ માટે કોપી કરો અથવા એક્સેલ CSV ડાઉનલોડ કરો."],
+          ["📱 ૫. ૧૦૦% ઓફલાઇન PWA", "ઇન્ટરનેટ વિના પણ કન્સ્ટ્રક્શન સાઇટ પર વાપરો."]
+        ]
+      },
+      kn: {
+        title: "ಬಳಕೆದಾರರ ಕೈಪಿಡಿ — ಪ್ಲಾನ್ & ಬಿಲ್ಡ್‌ಮೆಟ್ರಿಕ್",
+        file: "docs/HOW_TO_USE_kn.md",
+        steps: [
+          ["🚀 1. ಒಂದೇ ಕ್ಲಿಕ್‌ನಲ್ಲಿ ಬದಲಾವಣೆ", "ಮೇಲಿನ ಕ್ವಿಕ್ ಸ್ವಿಚರ್ ಬಳಸಿ ಸುಲಭವಾಗಿ ಬದಲಾಯಿಸಿ."],
+          ["⚡ 2. ಭಾರತೀಯ ಪ್ರಿಸೆಟ್‌ಗಳು", "ಪ್ರಮಾಣಿತ ಅಳತೆಗಳನ್ನು ತುಂಬಲು ಪ್ರಿಸೆಟ್ ಒತ್ತಿರಿ."],
+          ["🌐 3. 11 ಭಾರತೀಯ ಪ್ರಾದೇಶಿಕ ಭಾಷೆಗಳು", "🌐 ಭಾಷೆ ಬಟನ್ ಒತ್ತಿ ನಿಮ್ಮ ಭಾಷೆ ಆರಿಸಿ."],
+          ["📋 4. ಕಾಪಿ & CSV ಡೌನ್‌ಲೋಡ್", "ವಾಟ್ಸಾಪ್‌ಗೆ ಕಾಪಿ ಮಾಡಿ ಅಥವಾ ಎಕ್ಸೆಲ್ CSV ಡೌನ್‌ಲೋಡ್ ಮಾಡಿ."],
+          ["📱 5. 100% ಆಫ್‌ಲೈನ್ PWA", "ಇಂಟರ್ನೆಟ್ ಇಲ್ಲದೆಯೂ ನಿರ್ಮಾಣ ಸ್ಥಳದಲ್ಲಿ ಬಳಸಿ."]
+        ]
+      },
+      ml: {
+        title: "ഉപയോക്തൃ ഗൈഡ് — പ്ലാൻ & ബിൽഡ്മെട്രിക്",
+        file: "docs/HOW_TO_USE_ml.md",
+        steps: [
+          ["🚀 1. ഒറ്റ ക്ലിക്കിൽ മാറ്റാം", "മുകളിലെ ക്വിക്ക് സ്വിച്ചർ ഉപയോഗിച്ച് ഉടൻ മാറുക."],
+          ["⚡ 2. ഇന്ത്യൻ പ്രീസെറ്റുകൾ", "സ്റ്റാൻഡേർഡ് അളവുകൾക്കായി പ്രീസെറ്റുകൾ ക്ലിക്ക് ചെയ്യുക."],
+          ["🌐 3. 11 ഇന്ത്യൻ പ്രാദേശിക ഭാഷകൾ", "🌐 ഭാഷ ബട്ടൺ ക്ലിക്ക് ചെയ്ത് ഭാഷ തിരഞ്ഞെടുക്കുക."],
+          ["📋 4. കോപ്പി & CSV എക്സ്പോർട്ട്", "വാട്ട്സാപ്പിൽ അയക്കാൻ കോപ്പി ചെയ്യുക അല്ലെങ്കിൽ CSV ഡൗൺലോഡ് ചെയ്യുക."],
+          ["📱 5. 100% ഓഫ്‌ലൈൻ PWA", "ഇന്റർനെറ്റ് ഇല്ലാതെ നിർമ്മാണ സൈറ്റുകളിൽ നേരിട്ട് ഉപയോഗിക്കുക."]
+        ]
+      },
+      pa: {
+        title: "ਯੂਜ਼ਰ ਗਾਈਡ — ਪਲਾਨ ਐਂਡ ਬਿਲਡਮੈਟ੍ਰਿਕ",
+        file: "docs/HOW_TO_USE_pa.md",
+        steps: [
+          ["🚀 1. ਇੱਕ ਕਲਿੱਕ ਨਾਲ ਬਦਲੋ", "ਕਵਿੱਕ ਸਵਿੱਚਰ ਬਾਰ ਨਾਲ ਤੁਰੰਤ ਟੂਲ ਬਦਲੋ।"],
+          ["⚡ 2. ਭਾਰਤੀ ਪ੍ਰੀਸੈੱਟ", "ਸਟੈਂਡਰਡ ਮਾਪ ਭਰਨ ਲਈ ਪ੍ਰੀਸੈੱਟ 'ਤੇ ਕਲਿੱਕ ਕਰੋ।"],
+          ["🌐 3. 11 ਭਾਰਤੀ ਖੇਤਰੀ ਭਾਸ਼ਾਵਾਂ", "🌐 ਭਾਸ਼ਾ ਬਟਨ ਦਬਾ ਕੇ ਆਪਣੀ ਭਾਸ਼ਾ ਚੁਣੋ।"],
+          ["📋 4. ਕਾਪੀ ਅਤੇ CSV ਐਕਸਪੋਰਟ", "ਵ੍ਹਟਸਐਪ ਲਈ ਕਾਪੀ ਕਰੋ ਜਾਂ ਐਕਸਲ CSV ਡਾਊਨਲੋਡ ਕਰੋ।"],
+          ["📱 5. 100% ਔਫਲਾਈਨ PWA", "ਬਿਨਾਂ ਇੰਟਰਨੈੱਟ ਦੇ ਕੰਸਟ੍ਰਕਸ਼ਨ ਸਾਈਟ 'ਤੇ ਵਰਤੋਂ।"]
+        ]
+      },
+      or: {
+        title: "ବ୍ୟବହାରକାରୀ ମାର୍ଗଦର୍ଶିକା — ପ୍ଲାନ ଆଣ୍ଡ ବିଲ୍ଡମେଟ୍ରିକ",
+        file: "docs/HOW_TO_USE_or.md",
+        steps: [
+          ["🚀 ୧. ଗୋଟିଏ କ୍ଲିକରେ କାଲକୁଲେଟର ପରିବର୍ତ୍ତନ", "ଉପରେ ଥିବା କୁଇକ୍ ସୁଇଚର୍ ବ୍ୟବହାର କରି ସହଜରେ ବଦଳାନ୍ତୁ।"],
+          ["⚡ ୨. ଭାରତୀୟ ପ୍ରିସେଟ୍", "ପ୍ରାମାଣିକ ମାପ ପାଇଁ ପ୍ରିସେଟ୍ ଉପରେ କ୍ଲିକ୍ କରନ୍ତୁ।"],
+          ["🌐 ୩. ୧୧ଟି ଭାରତୀୟ ଆଞ୍ଚଳିକ ଭାଷା", "🌐 ଭାଷା ବଟନ୍ ଦବାଇ ନିଜ ପସନ୍ଦର ଭାଷା ଚୟନ କରନ୍ତୁ।"],
+          ["📋 ୪. କପି ଏବଂ CSV ଏକ୍ସପୋର୍ଟ", "ହ୍ୱାଟ୍ସଆପ୍ ପାଇଁ କପି କରନ୍ତୁ କିମ୍ବା ଏକ୍ସେଲ୍ CSV ଡାଉନଲୋଡ୍ କରନ୍ତୁ।"],
+          ["📱 ୫. ୧୦୦% ଅଫଲାଇନ୍ PWA", "ଇଣ୍ଟରନେଟ୍ ବିନା ନିର୍ମାଣ ସ୍ଥଳରେ ବ୍ୟବହାର କରନ୍ତୁ।"]
+        ]
+      }
+    };
+
+    const g = guides[lang] || guides.en;
+    if (titleEl) titleEl.textContent = g.title;
+
+    let html = '';
+    g.steps.forEach(([stTitle, stDesc]) => {
+      html += `
+        <div class="p-3 bg-slate-800/80 rounded-2xl border border-slate-700/80">
+          <h4 class="font-bold text-amber-400 mb-1 text-xs">${stTitle}</h4>
+          <p class="text-slate-300 leading-relaxed">${stDesc}</p>
+        </div>
+      `;
+    });
+    bodyEl.innerHTML = html;
+
+    if (linkEl) {
+      linkEl.setAttribute('href', `https://github.com/umbind/Construction_Calc/blob/main/${g.file}`);
+    }
   }
 
   bindLegalModals() {

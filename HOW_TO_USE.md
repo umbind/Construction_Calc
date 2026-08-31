@@ -4,6 +4,11 @@ Welcome to **Plan & BuildMetric India**! This guide is designed to help civil en
 
 ---
 
+## 🌐 Choose Your Language / भाषा चुनें (11 Indian Regional Languages)
+[English (Default)](HOW_TO_USE.md) • [हिन्दी (Hindi)](docs/HOW_TO_USE_hi.md) • [বাংলা (Bengali)](docs/HOW_TO_USE_bn.md) • [తెలుగు (Telugu)](docs/HOW_TO_USE_te.md) • [मराठी (Marathi)](docs/HOW_TO_USE_mr.md) • [தமிழ் (Tamil)](docs/HOW_TO_USE_ta.md) • [ગુજરાતી (Gujarati)](docs/HOW_TO_USE_gu.md) • [ಕನ್ನಡ (Kannada)](docs/HOW_TO_USE_kn.md) • [മലയാളം (Malayalam)](docs/HOW_TO_USE_ml.md) • [ਪੰਜਾਬੀ (Punjabi)](docs/HOW_TO_USE_pa.md) • [ଓଡ଼ିଆ (Odia)](docs/HOW_TO_USE_or.md)
+
+---
+
 ## 📑 Table of Contents
 1. [Quick Overview & Key Highlights](#1-quick-overview--key-highlights)
 2. [How to Navigate the Platform](#2-how-to-navigate-the-platform)
