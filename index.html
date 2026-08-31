@@ -269,36 +269,156 @@
       </div>
     </section>
 
-    <!-- Contextual Regulatory Guidelines & Standards -->
-    <section id="authority-resources-container" class="my-8 hidden">
-      <div class="border-t border-slate-800/80 pt-5">
-        <h3 class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-2.5 flex items-center gap-2" data-i18n="ui.regulatoryTitle">
-          <svg class="w-4 h-4 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
-          <span>Indian Standards &amp; Regulatory Guidelines</span>
-        </h3>
-        <div id="authority-cards-grid" class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-          <!-- Injected dynamically -->
+    <!-- Discovery Hub: Topic Hubs, Educational Guides & Standards -->
+    <section class="my-10 pt-8 border-t border-slate-800/80">
+      <div class="mb-6">
+        <h2 class="text-lg font-black text-white tracking-tight mb-1">Explore by Topic Hubs &amp; Knowledge Areas</h2>
+        <p class="text-xs text-slate-400">Discover calculators, regulatory codes, and educational guides organized by domain</p>
+      </div>
+
+      <!-- Topic Hubs Cards -->
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 mb-8">
+        <a href="/materials/" class="p-3.5 bg-slate-900/90 hover:bg-slate-850 border border-slate-800 hover:border-amber-500/50 rounded-2xl transition-all group block">
+          <span class="text-xl mb-1.5 block">🧱</span>
+          <h3 class="font-bold text-slate-200 group-hover:text-amber-400 text-xs mb-0.5">Materials</h3>
+          <p class="text-[11px] text-slate-500">Concrete, Steel &amp; Brick</p>
+        </a>
+
+        <a href="/construction/" class="p-3.5 bg-slate-900/90 hover:bg-slate-850 border border-slate-800 hover:border-amber-500/50 rounded-2xl transition-all group block">
+          <span class="text-xl mb-1.5 block">🏗️</span>
+          <h3 class="font-bold text-slate-200 group-hover:text-amber-400 text-xs mb-0.5">Construction</h3>
+          <p class="text-[11px] text-slate-500">Roof Casting &amp; Loans</p>
+        </a>
+
+        <a href="/finishes/" class="p-3.5 bg-slate-900/90 hover:bg-slate-850 border border-slate-800 hover:border-amber-500/50 rounded-2xl transition-all group block">
+          <span class="text-xl mb-1.5 block">📐</span>
+          <h3 class="font-bold text-slate-200 group-hover:text-amber-400 text-xs mb-0.5">Finishes</h3>
+          <p class="text-[11px] text-slate-500">Tiles, Plaster &amp; Paint</p>
+        </a>
+
+        <a href="/real-estate/" class="p-3.5 bg-slate-900/90 hover:bg-slate-850 border border-slate-800 hover:border-amber-500/50 rounded-2xl transition-all group block">
+          <span class="text-xl mb-1.5 block">📈</span>
+          <h3 class="font-bold text-slate-200 group-hover:text-amber-400 text-xs mb-0.5">Real Estate</h3>
+          <p class="text-[11px] text-slate-500">Rental Yield &amp; Cap Rate</p>
+        </a>
+
+        <a href="/finance/" class="p-3.5 bg-slate-900/90 hover:bg-slate-850 border border-slate-800 hover:border-amber-500/50 rounded-2xl transition-all group block">
+          <span class="text-xl mb-1.5 block">🏦</span>
+          <h3 class="font-bold text-slate-200 group-hover:text-amber-400 text-xs mb-0.5">Finance</h3>
+          <p class="text-[11px] text-slate-500">Home Loan &amp; 12.5% Tax</p>
+        </a>
+
+        <a href="/mep/" class="p-3.5 bg-slate-900/90 hover:bg-slate-850 border border-slate-800 hover:border-amber-500/50 rounded-2xl transition-all group block">
+          <span class="text-xl mb-1.5 block">❄️</span>
+          <h3 class="font-bold text-slate-200 group-hover:text-amber-400 text-xs mb-0.5">MEP &amp; HVAC</h3>
+          <p class="text-[11px] text-slate-500">AC Tonnage &amp; Power</p>
+        </a>
+      </div>
+
+      <!-- Two Column Knowledge & Standards Section -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- Educational Guides -->
+        <div class="p-5 bg-slate-900/60 border border-slate-800/80 rounded-2xl">
+          <div class="flex items-center justify-between mb-3">
+            <h3 class="text-xs font-bold uppercase tracking-wider text-amber-400 flex items-center gap-1.5">
+              <span>📘</span> <span>Educational Guides</span>
+            </h3>
+            <a href="/guides/" class="text-xs font-semibold text-slate-400 hover:text-amber-400">View All &rarr;</a>
+          </div>
+          <ul class="space-y-2 text-xs text-slate-300">
+            <li><a href="/guides/how-to-calculate-concrete-volume/" class="hover:text-amber-400 flex items-center justify-between py-1 border-b border-slate-800/60"><span>How to Calculate Concrete Volume &amp; Bags</span> <span class="text-slate-500">IS 456</span></a></li>
+            <li><a href="/guides/brickwork-masonry-estimation/" class="hover:text-amber-400 flex items-center justify-between py-1 border-b border-slate-800/60"><span>Brickwork &amp; AAC Block Estimation</span> <span class="text-slate-500">9" &amp; 4.5" Walls</span></a></li>
+            <li><a href="/guides/home-loan-tax-benefits/" class="hover:text-amber-400 flex items-center justify-between py-1 border-b border-slate-800/60"><span>Home Loan Tax Benefits (Sec 24b &amp; 80C)</span> <span class="text-slate-500">₹3.5L Rebate</span></a></li>
+            <li><a href="/guides/budget-2024-property-capital-gains/" class="hover:text-amber-400 flex items-center justify-between py-1"><span>Budget 2024 Property 12.5% LTCG Tax</span> <span class="text-slate-500">Finance Act</span></a></li>
+          </ul>
+        </div>
+
+        <!-- Authority Standards -->
+        <div class="p-5 bg-slate-900/60 border border-slate-800/80 rounded-2xl">
+          <div class="flex items-center justify-between mb-3">
+            <h3 class="text-xs font-bold uppercase tracking-wider text-amber-400 flex items-center gap-1.5">
+              <span>📜</span> <span>Bureau of Indian Standards &amp; Codes</span>
+            </h3>
+            <a href="/standards/" class="text-xs font-semibold text-slate-400 hover:text-amber-400">View All &rarr;</a>
+          </div>
+          <ul class="space-y-2 text-xs text-slate-300">
+            <li><a href="/standards/is-456/" class="hover:text-amber-400 flex items-center justify-between py-1 border-b border-slate-800/60"><span>IS 456:2000 — Plain &amp; Reinforced Concrete</span> <span class="text-slate-500">M20/M25 Mix</span></a></li>
+            <li><a href="/standards/is-1786/" class="hover:text-amber-400 flex items-center justify-between py-1 border-b border-slate-800/60"><span>IS 1786:2008 — Fe 500D TMT Steel Rebar</span> <span class="text-slate-500">Ductility</span></a></li>
+            <li><a href="/standards/nbc-2016/" class="hover:text-amber-400 flex items-center justify-between py-1 border-b border-slate-800/60"><span>NBC 2016 — National Building Code</span> <span class="text-slate-500">Climate Zones</span></a></li>
+            <li><a href="/standards/rera/" class="hover:text-amber-400 flex items-center justify-between py-1"><span>RERA 2016 — Carpet Area Specifications</span> <span class="text-slate-500">Carpet Area</span></a></li>
+          </ul>
         </div>
       </div>
     </section>
   </main>
 
-  <!-- Clean Minimal Footer -->
-  <footer class="bg-slate-900/80 border-t border-slate-800 text-slate-400 text-xs py-6 px-4 sm:px-6 no-print mt-auto">
-    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3">
-      <div class="flex items-center gap-2">
-        <div class="w-6 h-6 rounded-md bg-amber-500 flex items-center justify-center text-slate-950 font-black text-[11px]">PBM</div>
-        <span class="font-bold text-slate-200" data-i18n="brandName">Plan &amp; BuildMetric</span>
-        <span class="text-slate-500">&bull; &copy; 2026</span>
+  <!-- Comprehensive Platform Footer -->
+  <footer class="bg-slate-900/80 border-t border-slate-800 text-slate-400 text-xs py-8 px-4 sm:px-6 no-print mt-auto">
+    <div class="max-w-7xl mx-auto grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-6 gap-6 mb-8">
+      <div>
+        <h4 class="font-bold text-slate-200 mb-2.5">Topic Hubs</h4>
+        <ul class="space-y-1.5 text-slate-400">
+          <li><a href="/materials/" class="hover:text-amber-400">Materials</a></li>
+          <li><a href="/construction/" class="hover:text-amber-400">Construction</a></li>
+          <li><a href="/finishes/" class="hover:text-amber-400">Finishes</a></li>
+          <li><a href="/real-estate/" class="hover:text-amber-400">Real Estate</a></li>
+          <li><a href="/finance/" class="hover:text-amber-400">Finance &amp; Taxes</a></li>
+          <li><a href="/mep/" class="hover:text-amber-400">MEP &amp; HVAC</a></li>
+        </ul>
       </div>
+      <div>
+        <h4 class="font-bold text-slate-200 mb-2.5">Key Calculators</h4>
+        <ul class="space-y-1.5 text-slate-400">
+          <li><a href="/calculators/concrete/" class="hover:text-amber-400">IS 456 Concrete</a></li>
+          <li><a href="/calculators/framing/" class="hover:text-amber-400">Masonry &amp; Steel</a></li>
+          <li><a href="/calculators/flooring/" class="hover:text-amber-400">Vitrified Tiles</a></li>
+          <li><a href="/calculators/brrrr/" class="hover:text-amber-400">Home Loan EMI</a></li>
+          <li><a href="/calculators/fixflip/" class="hover:text-amber-400">12.5% LTCG Tax</a></li>
+          <li><a href="/calculators/hvac/" class="hover:text-amber-400">AC Tonnage</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-bold text-slate-200 mb-2.5">Educational Guides</h4>
+        <ul class="space-y-1.5 text-slate-400">
+          <li><a href="/guides/how-to-use/" class="hover:text-amber-400">User Manual (11 Langs)</a></li>
+          <li><a href="/guides/how-to-calculate-concrete-volume/" class="hover:text-amber-400">Concrete Volume</a></li>
+          <li><a href="/guides/brickwork-masonry-estimation/" class="hover:text-amber-400">Brickwork Estimation</a></li>
+          <li><a href="/guides/home-loan-tax-benefits/" class="hover:text-amber-400">Home Loan Tax</a></li>
+          <li><a href="/guides/budget-2024-property-capital-gains/" class="hover:text-amber-400">Budget 2024 LTCG</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-bold text-slate-200 mb-2.5">Authority Standards</h4>
+        <ul class="space-y-1.5 text-slate-400">
+          <li><a href="/standards/is-456/" class="hover:text-amber-400">IS 456:2000 (Concrete)</a></li>
+          <li><a href="/standards/is-1786/" class="hover:text-amber-400">IS 1786 (TMT Steel)</a></li>
+          <li><a href="/standards/is-2185/" class="hover:text-amber-400">IS 2185 (Blocks)</a></li>
+          <li><a href="/standards/nbc-2016/" class="hover:text-amber-400">NBC 2016</a></li>
+          <li><a href="/standards/rera/" class="hover:text-amber-400">RERA Norms</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-bold text-slate-200 mb-2.5">User Enablement</h4>
+        <ul class="space-y-1.5 text-slate-400">
+          <li><a href="/help/" class="hover:text-amber-400">Help Center</a></li>
+          <li><a href="/help/how-to-use-calculators/" class="hover:text-amber-400">Calculator Usage</a></li>
+          <li><a href="/help/understanding-results/" class="hover:text-amber-400">Understanding Results</a></li>
+          <li><a href="/help/offline-pwa/" class="hover:text-amber-400">Offline PWA App</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-bold text-slate-200 mb-2.5">Legal &amp; Policy</h4>
+        <ul class="space-y-1.5 text-slate-400">
+          <li><a href="/privacy/" class="hover:text-amber-400">DPDP Act Privacy</a></li>
+          <li><a href="/disclaimer/" class="hover:text-amber-400">Safe-Harbor Disclaimer</a></li>
+          <li><a href="/about/" class="hover:text-amber-400">About Plan &amp; BuildMetric</a></li>
+        </ul>
+      </div>
+    </div>
 
-      <div class="flex flex-wrap items-center gap-4 text-slate-400 text-xs">
-        <h4 class="sr-only">Quick Links &amp; Policies</h4>
-        <button class="open-guide-modal hover:text-amber-400 font-semibold text-amber-400/90 transition-colors flex items-center gap-1 cursor-pointer"><span>📖</span> <span>How to Use</span></button>
-        <button class="open-about-modal hover:text-amber-400 transition-colors cursor-pointer" data-i18n="ui.aboutTitle">About &amp; IS Standards</button>
-        <button class="open-privacy-modal hover:text-amber-400 transition-colors cursor-pointer" data-i18n="ui.privacyTitle">Privacy Policy</button>
-        <button class="open-disclaimer-modal hover:text-amber-400 transition-colors cursor-pointer" data-i18n="ui.disclaimerTitle">Disclaimer</button>
-      </div>
+    <div class="max-w-7xl mx-auto pt-4 border-t border-slate-800/80 flex flex-col sm:flex-row items-center justify-between gap-3 text-slate-500 text-[11px]">
+      <p>&copy; 2026 Plan &amp; BuildMetric India. Deterministic civil engineering &amp; real estate analytics.</p>
+      <p>Grounding: IS 456:2000 &bull; IS 1786 &bull; NBC 2016 &bull; RERA &bull; Finance Act 2024</p>
     </div>
   </footer>
 

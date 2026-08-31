@@ -331,24 +331,27 @@ export class App {
 
     let html = '<div class="space-y-2">';
     matches.forEach(item => {
+      const typeBadge = item.type ? `<span class="text-[9px] font-black uppercase px-1.5 py-0.5 rounded bg-amber-500/20 text-amber-300 border border-amber-500/30">${item.type}</span>` : '';
       const categoryName = getTranslation(`categories.${item.category}`, item.category);
       const title = getTranslation(`tools.${item.id}.title`, item.title);
-      const desc = getTranslation(`tools.${item.id}.desc`, '');
-      const icon = this.toolIcons[item.id] || '⚡';
+      const desc = getTranslation(`tools.${item.id}.desc`, item.description || '');
+      const icon = this.toolIcons[item.id] || (item.type === 'GUIDE' ? '📘' : item.type === 'STANDARD' ? '📜' : item.type === 'TOPIC' ? '🏛️' : '💡');
+      const targetUrl = item.url || `/calculators/${item.id}/`;
 
       html += `
-        <a href="/calculators/${item.id}/" class="search-result-item flex items-center justify-between p-3.5 rounded-2xl bg-slate-800/70 hover:bg-slate-750 border border-slate-700/60 hover:border-amber-500/50 transition-all group cursor-pointer" data-tool="${item.id}">
+        <a href="${targetUrl}" class="search-result-item flex items-center justify-between p-3 rounded-2xl bg-slate-800/70 hover:bg-slate-750 border border-slate-700/60 hover:border-amber-500/50 transition-all group cursor-pointer" data-tool="${item.id}">
           <div class="flex items-center gap-3">
-            <span class="text-xl p-2 rounded-xl bg-slate-900 border border-slate-800">${icon}</span>
+            <span class="text-lg p-2 rounded-xl bg-slate-900 border border-slate-800">${icon}</span>
             <div>
               <div class="flex items-center gap-2 mb-0.5">
-                <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-slate-700 text-amber-400 border border-slate-600">${categoryName}</span>
-                <h4 class="font-bold text-slate-100 group-hover:text-amber-400 transition-colors text-sm">${title}</h4>
+                ${typeBadge}
+                <span class="text-[10px] font-bold px-1.5 py-0.2 rounded-full bg-slate-700 text-slate-300 border border-slate-600">${categoryName}</span>
+                <h4 class="font-bold text-slate-100 group-hover:text-amber-400 transition-colors text-xs sm:text-sm">${title}</h4>
               </div>
               <p class="text-xs text-slate-400 line-clamp-1 leading-relaxed">${desc}</p>
             </div>
           </div>
-          <svg class="w-5 h-5 text-slate-500 group-hover:text-amber-400 group-hover:translate-x-1 transition-all flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg class="w-4 h-4 text-slate-500 group-hover:text-amber-400 group-hover:translate-x-1 transition-all flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
           </svg>
         </a>
