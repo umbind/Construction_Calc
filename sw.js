@@ -1,4 +1,4 @@
-const CACHE_NAME = 'pbm-v1.0.0';
+const CACHE_NAME = 'pbm-v2.0.0';
 const ASSETS_TO_CACHE = [
   '/',
   '/index.html',
@@ -27,7 +27,22 @@ const ASSETS_TO_CACHE = [
   '/js/calculators/brrrr.js',
   '/js/calculators/fixflip.js',
   '/js/calculators/hardmoney.js',
-  '/js/calculators/hvac.js'
+  '/js/calculators/hvac.js',
+  '/calculators/concrete/',
+  '/calculators/drywall/',
+  '/calculators/flooring/',
+  '/calculators/framing/',
+  '/calculators/paint/',
+  '/calculators/roofing/',
+  '/calculators/caprate/',
+  '/calculators/brrrr/',
+  '/calculators/fixflip/',
+  '/calculators/hardmoney/',
+  '/calculators/hvac/',
+  '/guides/how-to-use/',
+  '/standards/is-456/',
+  '/privacy/',
+  '/disclaimer/'
 ];
 
 self.addEventListener('install', (event) => {
@@ -53,13 +68,11 @@ self.addEventListener('activate', (event) => {
 });
 
 self.addEventListener('fetch', (event) => {
-  // Only handle GET requests
   if (event.request.method !== 'GET') return;
 
   event.respondWith(
     caches.match(event.request).then((cachedResponse) => {
       if (cachedResponse) {
-        // Return cached and refresh in background
         fetch(event.request).then((networkResponse) => {
           if (networkResponse && networkResponse.status === 200) {
             caches.open(CACHE_NAME).then((cache) => cache.put(event.request, networkResponse));

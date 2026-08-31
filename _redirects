@@ -1,3 +1,16 @@
-# Plan & BuildMetric Netlify SPA Redirects Rule
-# Maps all direct URL routes to index.html for client-side routing while serving existing assets
-/*    /index.html   200
+# Standalone path redirects & trailing slash normalization
+/calculators/concrete    /calculators/concrete/   301!
+/calculators/drywall     /calculators/drywall/    301!
+/calculators/flooring    /calculators/flooring/   301!
+/calculators/framing     /calculators/framing/    301!
+/calculators/paint       /calculators/paint/      301!
+/calculators/roofing     /calculators/roofing/    301!
+/calculators/caprate     /calculators/caprate/    301!
+/calculators/brrrr       /calculators/brrrr/      301!
+/calculators/fixflip     /calculators/fixflip/    301!
+/calculators/hardmoney   /calculators/hardmoney/  301!
+/calculators/hvac        /calculators/hvac/       301!
+/guides/how-to-use       /guides/how-to-use/      301!
+/standards/is-456        /standards/is-456/       301!
+/privacy                 /privacy/                301!
+/disclaimer              /disclaimer/             301!

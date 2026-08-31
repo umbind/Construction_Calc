@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IS 456:2000 Plain and Reinforced Concrete Code of Practice | Technical Authority</title>
+  <meta name="description" content="Technical summary and mathematical formulations for Bureau of Indian Standards IS 456:2000 concrete mix design.">
+  <link rel="canonical" href="https://planandbuildmetric.netlify.app/standards/is-456/">
+
+  <!-- OpenGraph -->
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://planandbuildmetric.netlify.app/standards/is-456/">
+  <meta property="og:title" content="IS 456:2000 Plain and Reinforced Concrete Code of Practice | Technical Authority">
+  <meta property="og:description" content="Technical summary and mathematical formulations for Bureau of Indian Standards IS 456:2000 concrete mix design.">
+  <meta property="og:image" content="https://planandbuildmetric.netlify.app/og-image.png">
+
+  <!-- Favicons -->
+  <link rel="manifest" href="../../manifest.json">
+  <meta name="theme-color" content="#f59e0b">
+  <link rel="icon" type="image/png" sizes="64x64" href="../../favicon.png">
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: { 500: '#f59e0b', 600: '#d97706' },
+            slate: { 850: '#151f32', 950: '#070b14' }
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="../../css/styles.css">
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col antialiased selection:bg-amber-500 selection:text-slate-950">
+
+  <!-- Header -->
+  <header class="sticky top-0 z-40 bg-slate-900/95 backdrop-blur-md border-b border-slate-800 px-4 sm:px-6 py-2.5 no-print">
+    <div class="max-w-7xl mx-auto flex items-center justify-between gap-3">
+      <a href="../../" class="flex items-center gap-2.5 group focus:outline-none">
+        <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-amber-400 to-amber-600 flex items-center justify-center text-slate-950 shadow-md shadow-amber-500/20 font-black text-sm tracking-tighter group-hover:scale-105 transition-transform">
+          PBM
+        </div>
+        <div class="flex items-center gap-1.5">
+          <span class="text-base font-extrabold tracking-tight text-white group-hover:text-amber-400 transition-colors">Plan &amp; BuildMetric</span>
+          <span class="px-1.5 py-0.2 rounded bg-amber-500/15 text-amber-400 text-[10px] font-bold border border-amber-500/25">India</span>
+        </div>
+      </a>
+      <div class="flex items-center gap-3 text-xs">
+        <a href="../../calculators/" class="text-slate-300 hover:text-amber-400 font-semibold">Calculators</a>
+        <a href="../../guides/" class="text-slate-300 hover:text-amber-400 font-semibold">Guides</a>
+        <a href="../../standards/" class="text-slate-300 hover:text-amber-400 font-semibold">Standards</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Breadcrumbs -->
+  <nav class="bg-slate-900/40 border-b border-slate-800/80 px-4 sm:px-6 py-2 no-print" aria-label="Breadcrumb">
+    <div class="max-w-7xl mx-auto">
+      <ol class="flex items-center gap-1.5 text-xs text-slate-400 font-medium">
+        <li><a href="../../" class="hover:text-amber-400 transition-colors">Home</a></li><li class="text-slate-600">/</li><li><a href="../" class="hover:text-amber-400 transition-colors">Standards</a></li><li class="text-slate-600">/</li><li class="text-amber-400 font-semibold">IS 456:2000</li>
+      </ol>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="flex-1 max-w-4xl mx-auto w-full px-4 sm:px-6 py-8">
+    <h1 class="text-2xl sm:text-3xl font-black text-white tracking-tight mb-3">IS 456:2000 Concrete Mix Ratios, Dry Volume & Cement Bags</h1>
+    <p class="text-xs sm:text-sm text-slate-400 mb-8 leading-relaxed">Technical summary and mathematical formulations for Bureau of Indian Standards IS 456:2000 concrete mix design.</p>
+    
+    <div class="prose prose-invert max-w-none text-xs sm:text-sm text-slate-300 space-y-6 leading-relaxed">
+      
+    <div class="space-y-6">
+      <div class="p-5 bg-slate-900/90 border border-slate-800 rounded-2xl">
+        <h2 class="text-base font-bold text-amber-400 mb-2">📐 Nominal Mix Proportions (IS 456:2000)</h2>
+        <ul class="list-disc list-inside space-y-1.5 text-xs text-slate-300">
+          <li><strong>M20 (1 : 1.5 : 3)</strong>: Standard RCC for slabs, beams, and columns (Target characteristic compressive strength: 20 N/mm² at 28 days).</li>
+          <li><strong>M25 (1 : 1 : 2)</strong>: Heavy load foundations, commercial pillars, and water retaining structures.</li>
+          <li><strong>M15 (1 : 2 : 4)</strong>: Flooring bed, pathways, plinth base, and boundary walls.</li>
+          <li><strong>M7.5 (1 : 4 : 8)</strong>: Plain Cement Concrete (PCC) foundation sub-base.</li>
+        </ul>
+      </div>
+
+      <div class="p-5 bg-slate-900/90 border border-slate-800 rounded-2xl">
+        <h2 class="text-base font-bold text-amber-400 mb-2">⚡ Dry Volume Conversion Factor</h2>
+        <p class="text-xs text-slate-300 leading-relaxed mb-3">When mixing dry cement, sand, and aggregate with water, the volume decreases due to void filling. Per standard Indian civil engineering practice, a multiplier of <strong>1.54</strong> is applied to wet volume to calculate dry material quantities.</p>
+        <p class="text-xs font-mono text-amber-400">Dry Volume = Wet Volume (m³) × 1.54</p>
+      </div>
+      
+      <div class="pt-4">
+        <a href="../../calculators/concrete/" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-amber-500 text-slate-950 font-bold text-xs hover:bg-amber-400 transition-all">
+          <span>Open IS 456 Concrete Calculator &rarr;</span>
+        </a>
+      </div>
+    </div>
+    
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-slate-900/80 border-t border-slate-800 text-slate-400 text-xs py-6 px-4 sm:px-6 no-print mt-auto">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3">
+      <div class="flex items-center gap-2">
+        <div class="w-6 h-6 rounded-md bg-amber-500 flex items-center justify-center text-slate-950 font-black text-[11px]">PBM</div>
+        <span class="font-bold text-slate-200">Plan &amp; BuildMetric</span>
+        <span class="text-slate-500">&bull; &copy; 2026</span>
+      </div>
+      <div class="flex flex-wrap items-center gap-4 text-slate-400 text-xs">
+        <a href="../../guides/how-to-use/" class="hover:text-amber-400 font-semibold text-amber-400/90 transition-colors flex items-center gap-1"><span>📖</span> <span>User Guide</span></a>
+        <a href="../../standards/" class="hover:text-amber-400 transition-colors">IS Standards Hub</a>
+        <a href="../../privacy/" class="hover:text-amber-400 transition-colors">Privacy Policy</a>
+        <a href="../../disclaimer/" class="hover:text-amber-400 transition-colors">Disclaimer</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

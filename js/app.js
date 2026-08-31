@@ -255,7 +255,7 @@ export class App {
       const icon = this.toolIcons[id] || '⚡';
 
       html += `
-        <a href="#${id}" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold whitespace-nowrap transition-all ${
+        <a href="/calculators/${id}/" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold whitespace-nowrap transition-all ${
           isActive
             ? 'bg-amber-500 text-slate-950 shadow-md shadow-amber-500/25 font-bold scale-[1.03] ring-1 ring-amber-400'
             : 'bg-slate-900/80 hover:bg-slate-800 text-slate-300 hover:text-amber-400 border border-slate-800/90 hover:border-slate-700'
@@ -337,7 +337,7 @@ export class App {
       const icon = this.toolIcons[item.id] || '⚡';
 
       html += `
-        <a href="#${item.id}" class="search-result-item flex items-center justify-between p-3.5 rounded-2xl bg-slate-800/70 hover:bg-slate-750 border border-slate-700/60 hover:border-amber-500/50 transition-all group cursor-pointer" data-tool="${item.id}">
+        <a href="/calculators/${item.id}/" class="search-result-item flex items-center justify-between p-3.5 rounded-2xl bg-slate-800/70 hover:bg-slate-750 border border-slate-700/60 hover:border-amber-500/50 transition-all group cursor-pointer" data-tool="${item.id}">
           <div class="flex items-center gap-3">
             <span class="text-xl p-2 rounded-xl bg-slate-900 border border-slate-800">${icon}</span>
             <div>
@@ -458,7 +458,7 @@ export class App {
             </div>
 
             <!-- Card Title & Description -->
-            <a href="#${id}" class="block group-hover:text-amber-400 transition-colors">
+            <a href="/calculators/${id}/" class="block group-hover:text-amber-400 transition-colors">
               <h3 class="font-extrabold text-slate-100 text-sm tracking-tight mb-1.5 line-clamp-1">${title}</h3>
               <p class="text-xs text-slate-400 line-clamp-2 leading-relaxed mb-4">${desc}</p>
             </a>
@@ -467,7 +467,7 @@ export class App {
           <!-- Card Footer Action -->
           <div class="pt-3 border-t border-slate-800/80 flex items-center justify-between">
             <span class="text-[11px] font-mono font-semibold text-slate-500">IS 456 / RERA</span>
-            <a href="#${id}" class="inline-flex items-center gap-1.5 text-xs font-bold text-amber-400 group-hover:translate-x-1 transition-transform">
+            <a href="/calculators/${id}/" class="inline-flex items-center gap-1.5 text-xs font-bold text-amber-400 group-hover:translate-x-1 transition-transform">
               <span>${getTranslation('ui.openTool', 'Open Tool')}</span>
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
@@ -506,12 +506,31 @@ export class App {
   }
 
   handleRoute() {
-    const rawHash = window.location.hash.replace('#', '').trim();
-    if (rawHash && this.calculators[rawHash]) {
-      this.activeToolId = rawHash;
+    // 1. Check path-based route first
+    const path = window.location.pathname.toLowerCase();
+    const sectionEl = document.getElementById('active-calculator-section');
+    const initialTool = sectionEl ? sectionEl.getAttribute('data-initial-tool') : null;
+
+    let matchedTool = null;
+
+    if (initialTool && this.calculators[initialTool]) {
+      matchedTool = initialTool;
     } else {
-      this.activeToolId = 'concrete';
+      const match = path.match(/\/calculators\/([a-z0-9_-]+)/);
+      if (match && this.calculators[match[1]]) {
+        matchedTool = match[1];
+      }
     }
+
+    // 2. Fallback to hash-based route for backward compatibility
+    if (!matchedTool) {
+      const rawHash = window.location.hash.replace('#', '').trim();
+      if (rawHash && this.calculators[rawHash]) {
+        matchedTool = rawHash;
+      }
+    }
+
+    this.activeToolId = matchedTool || 'concrete';
 
     this.renderQuickToolSwitcher();
     this.renderCategoryPills();
@@ -1443,7 +1462,7 @@ export class App {
         const title = getTranslation(`tools.${id}.shortTitle`, id);
         const isActive = this.activeToolId === id;
         html += `
-          <a href="#${id}" class="inline-flex items-center gap-1 text-xs px-2.5 py-1 rounded-lg border transition-all mr-1.5 ${
+          <a href="/calculators/${id}/" class="inline-flex items-center gap-1 text-xs px-2.5 py-1 rounded-lg border transition-all mr-1.5 ${
             isActive
               ? 'bg-amber-500/20 border-amber-500/60 text-amber-400 font-bold'
               : 'bg-slate-800/80 hover:bg-slate-700 border-slate-700 text-slate-300'

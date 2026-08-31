@@ -32,8 +32,10 @@ REQUIRED_FILES = [
     "robots.txt",
     "sitemap.xml",
     "ads.txt",
-    "netlify.toml",
-    "vercel.json",
+    "_headers",
+    "_redirects",
+    "sw.js",
+    "HOW_TO_USE.md",
     "css/styles.css",
     "js/app.js",
     "js/data/i18n.js",
@@ -56,6 +58,32 @@ REQUIRED_FILES = [
     "js/calculators/fixflip.js",
     "js/calculators/hardmoney.js",
     "js/calculators/hvac.js",
+    "calculators/index.html",
+    "calculators/concrete/index.html",
+    "calculators/drywall/index.html",
+    "calculators/flooring/index.html",
+    "calculators/framing/index.html",
+    "calculators/paint/index.html",
+    "calculators/roofing/index.html",
+    "calculators/caprate/index.html",
+    "calculators/brrrr/index.html",
+    "calculators/fixflip/index.html",
+    "calculators/hardmoney/index.html",
+    "calculators/hvac/index.html",
+    "guides/how-to-use/index.html",
+    "standards/is-456/index.html",
+    "privacy/index.html",
+    "disclaimer/index.html",
+    "docs/HOW_TO_USE_hi.md",
+    "docs/HOW_TO_USE_bn.md",
+    "docs/HOW_TO_USE_te.md",
+    "docs/HOW_TO_USE_mr.md",
+    "docs/HOW_TO_USE_ta.md",
+    "docs/HOW_TO_USE_gu.md",
+    "docs/HOW_TO_USE_kn.md",
+    "docs/HOW_TO_USE_ml.md",
+    "docs/HOW_TO_USE_pa.md",
+    "docs/HOW_TO_USE_or.md",
 ]
 
 CORE_TOOLS = [
@@ -118,7 +146,7 @@ def test_sitemap_and_html():
     assert "https://planandbuildmetric.netlify.app/" in urls, "Root URL missing in sitemap"
     
     for tool in CORE_TOOLS:
-        expected_url = f"https://planandbuildmetric.netlify.app/#{tool}"
+        expected_url = f"https://planandbuildmetric.netlify.app/calculators/{tool}/"
         assert expected_url in urls, f"Tool URL missing in sitemap: {expected_url}"
         
     # 2. Test HTML structure
