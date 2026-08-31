@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <!-- Primary SEO Meta Tags -->
+  <title>Plan &amp; BuildMetric — Indian Construction &amp; Real Estate Takeoff Engine</title>
+  <meta name="description" content="Clean, precision construction takeoff and real estate analytics for India. IS 456 concrete m³, 50kg cement bags, AAC blocks, TMT steel, vitrified tiles, home loan EMI & LTCG tax.">
+  <meta name="keywords" content="concrete calculator india, is 456 cement bags, brass to m3 converter, vitrified tile calculator, tmt steel weight, home loan emi tax benefits, budget 2024 ltcg property tax, constructcalc, buildmetric">
+  <meta name="author" content="Plan &amp; BuildMetric Engineering Team">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://planandbuildmetric.netlify.app/">
+
+  <!-- OpenGraph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://planandbuildmetric.netlify.app/">
+  <meta property="og:title" content="Plan &amp; BuildMetric — Indian Construction &amp; Real Estate Engine">
+  <meta property="og:description" content="Zero-latency, 100% private client-side calculators for Indian builders, civil engineers and property investors. IS 456, RERA & GST compliant.">
+  <meta property="og:image" content="https://planandbuildmetric.netlify.app/og-image.png">
+
+  <!-- Twitter Cards -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://planandbuildmetric.netlify.app/">
+  <meta name="twitter:title" content="Plan &amp; BuildMetric — Indian Construction &amp; Real Estate Engine">
+  <meta name="twitter:description" content="Zero-latency, 100% private client-side calculators for Indian builders, civil engineers and property investors.">
+  <meta name="twitter:image" content="https://planandbuildmetric.netlify.app/og-image.png">
+
+  <!-- Web App Manifest & Favicons -->
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#f59e0b">
+  <link rel="icon" type="image/png" sizes="64x64" href="favicon.png">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#fffbeb',
+              100: '#fef3c7',
+              200: '#fde68a',
+              300: '#fcd34d',
+              400: '#fbbf24',
+              500: '#f59e0b',
+              600: '#d97706',
+              700: '#b45309',
+              800: '#92400e',
+              900: '#78350f',
+            },
+            slate: {
+              850: '#151f32',
+              950: '#070b14',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/styles.css">
+
+  <!-- Schema.org JSON-LD Structured Data Graph -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "@id": "https://planandbuildmetric.netlify.app/#webapp",
+        "name": "Plan & BuildMetric",
+        "url": "https://planandbuildmetric.netlify.app/",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "All modern browsers (Desktop, Tablet, Mobile)",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "INR"
+        },
+        "description": "Professional construction material estimation and real estate analytics suite tailored for India.",
+        "featureList": [
+          "IS 456 Concrete Volume & 50kg Cement Bags",
+          "Gyproc False Ceiling & Plastering Takeoff",
+          "Vitrified Tiles & Roff Adhesive Estimator",
+          "Bricks, AAC Blocks & Fe 500D TMT Steel",
+          "Paint Litres, 40kg Wall Putty & Primer",
+          "M20 RCC Roof Slab & Terrace Waterproofing",
+          "Indian Rental Yield & Annual NOI (Cap Rate)",
+          "Home Loan EMI & Section 24b/80C Tax Benefits",
+          "Property Resale Profit & Budget 2024 12.5% LTCG Tax",
+          "Builder Construction Loan & Stage Disbursements",
+          "Room AC Tonnage & BEE 5-Star Electricity Bills"
+        ]
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://planandbuildmetric.netlify.app/#organization",
+        "name": "Plan & BuildMetric",
+        "url": "https://planandbuildmetric.netlify.app/",
+        "logo": "https://planandbuildmetric.netlify.app/logo.png"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://planandbuildmetric.netlify.app/#breadcrumb",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://planandbuildmetric.netlify.app/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Material Estimation",
+            "item": "https://planandbuildmetric.netlify.app/#materials"
+          }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://planandbuildmetric.netlify.app/#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How is Concrete Volume calculated in m³, Brass and 50kg Bags in India?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Concrete Volume in m³ is calculated as Length (m) * Width (m) * Thickness (m) * (1 + Waste %). In India, 1 Brass equals 100 Cubic Feet (2.83168 m³). For M20 nominal mix (1:1.5:3), standard BIS IS 456:2000 specifies ~8.0 bags of 50kg cement per cubic meter."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is the Capital Gains Tax (LTCG) on property sales in India after Budget 2024?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Under the amended Finance Act 2024, Long Term Capital Gains (LTCG) on immovable property held for more than 24 months is taxed at a flat rate of 12.5% (without indexation benefit). Properties held for 24 months or less are subject to Short Term Capital Gains (STCG) at standard income tax slab rates."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What tax deductions apply to Home Loan EMI in India?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Under Section 24(b) of the Income Tax Act, borrowers can claim up to ₹2,00,000 per financial year on home loan interest paid. Under Section 80C, up to ₹1,50,000 can be claimed on principal repayment for self-occupied residential property."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+
+<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col antialiased selection:bg-amber-500 selection:text-slate-950">
+
+  <!-- Clean Header Navigation -->
+  <header class="sticky top-0 z-40 bg-slate-900/95 backdrop-blur-md border-b border-slate-800 px-4 sm:px-6 py-2.5 no-print">
+    <div class="max-w-7xl mx-auto flex items-center justify-between gap-3">
+      
+      <!-- Brand Logo -->
+      <a href="#" class="flex items-center gap-2.5 group focus:outline-none">
+        <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-amber-400 to-amber-600 flex items-center justify-center text-slate-950 shadow-md shadow-amber-500/20 font-black text-sm tracking-tighter group-hover:scale-105 transition-transform">
+          PBM
+        </div>
+        <div class="flex items-center gap-1.5">
+          <span class="text-base font-extrabold tracking-tight text-white group-hover:text-amber-400 transition-colors" data-i18n="brandName">Plan &amp; BuildMetric</span>
+          <span class="px-1.5 py-0.2 rounded bg-amber-500/15 text-amber-400 text-[10px] font-bold border border-amber-500/25" data-i18n="brandBadge">India</span>
+        </div>
+      </a>
+
+      <!-- Quick Search Trigger (Ctrl+K) -->
+      <button id="search-trigger-btn" class="hidden md:flex items-center gap-3 bg-slate-800/80 hover:bg-slate-750 border border-slate-700 rounded-xl px-3 py-1.5 text-xs text-slate-400 hover:text-slate-200 transition-all w-48 lg:w-60 justify-between">
+        <div class="flex items-center gap-2">
+          <svg class="w-3.5 h-3.5 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+          <span data-i18n="searchPlaceholder">Search calculators...</span>
+        </div>
+        <kbd class="px-1.5 py-0.5 rounded bg-slate-900 text-slate-400 border border-slate-700 text-[10px] font-mono font-semibold">Ctrl+K</kbd>
+      </button>
+
+      <!-- Utility Controls: Currency Badge, Language Switcher, History, Theme -->
+      <div class="flex items-center gap-2">
+        <!-- Mobile Search Icon -->
+        <button id="mobile-search-btn" class="md:hidden p-2 rounded-xl bg-slate-800 border border-slate-700 text-slate-300 hover:text-amber-400">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+        </button>
+
+        <!-- Fixed Indian Rupee Currency Indicator -->
+        <div class="flex items-center gap-1 bg-slate-800/90 border border-slate-700 rounded-xl px-2.5 py-1.5 text-xs font-bold text-amber-400">
+          <span>₹ INR</span>
+        </div>
+
+        <!-- Indian Language Selector Trigger -->
+        <button id="lang-trigger-btn" class="flex items-center gap-1.5 bg-slate-800/90 hover:bg-slate-750 border border-slate-700 rounded-xl px-2.5 py-1.5 text-xs font-semibold text-slate-200 hover:text-amber-400 transition-all cursor-pointer">
+          <span class="text-xs">🌐</span>
+          <span id="active-lang-label" class="font-bold text-amber-400">English</span>
+          <svg class="w-3 h-3 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+        </button>
+
+        <!-- Calculation History Drawer Trigger -->
+        <button id="history-btn" class="p-2 rounded-xl bg-slate-800 hover:bg-slate-750 border border-slate-700 text-slate-300 hover:text-amber-400 transition-colors" title="Calculation History">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+          </svg>
+        </button>
+
+        <!-- Theme Toggle -->
+        <button id="theme-toggle-btn" class="p-2 rounded-xl bg-slate-800 hover:bg-slate-750 border border-slate-700 text-slate-300 hover:text-amber-400 transition-colors" title="Toggle Theme">
+          <svg id="theme-icon-dark" class="w-4 h-4 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+          <svg id="theme-icon-light" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Clean Category & Navigation Toolbar -->
+  <section class="bg-slate-900/40 border-b border-slate-800/80 px-4 sm:px-6 py-2 no-print">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row md:items-center justify-between gap-2.5">
+      <!-- Category Pills -->
+      <div id="category-filter-container" class="flex items-center gap-1.5 overflow-x-auto pb-1 md:pb-0 scrollbar-none">
+        <!-- Injected dynamically by app.js -->
+      </div>
+      <!-- Breadcrumbs & Quick Favorites -->
+      <div class="flex items-center justify-between gap-4 text-xs text-slate-400">
+        <div id="breadcrumbs-bar" class="hidden sm:block">
+          <span class="text-slate-500">...</span>
+        </div>
+        <div id="pinned-favorites-bar" class="flex items-center">
+          <!-- Rendered by app.js -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Active Calculator Section -->
+  <main class="flex-1 max-w-7xl mx-auto w-full px-4 sm:px-6 py-4">
+    <!-- Quick Tool Switcher Tabs Bar -->
+    <nav id="calculator-tabs-bar" class="mb-4 flex items-center gap-1.5 overflow-x-auto pb-1.5 scrollbar-none" aria-label="Calculators Switcher">
+      <!-- Rendered dynamically by app.js with live active state -->
+    </nav>
+
+    <section id="active-calculator-section" class="mb-8">
+      <div id="active-calculator-container">
+        <!-- Injected dynamically by App.renderActiveCalculator() -->
+        <div class="flex items-center justify-center py-20">
+          <div class="animate-spin rounded-full h-10 w-10 border-4 border-amber-500 border-t-transparent"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- All Tools Quick Navigator Grid -->
+    <section class="my-8">
+      <div class="flex items-center justify-between mb-3">
+        <div>
+          <h2 class="text-base sm:text-lg font-bold text-white tracking-tight" data-i18n="ui.exploreAll">Explore Full Calculator Suite</h2>
+          <p class="text-xs text-slate-400" data-i18n="ui.exploreDesc">11 specialized tools with IS 456, RERA &amp; Indian tax formulas</p>
+        </div>
+      </div>
+
+      <div id="tools-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5">
+        <!-- Injected dynamically by app.js -->
+      </div>
+    </section>
+
+    <!-- Contextual Regulatory Guidelines & Standards -->
+    <section id="authority-resources-container" class="my-8 hidden">
+      <div class="border-t border-slate-800/80 pt-5">
+        <h3 class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-2.5 flex items-center gap-2" data-i18n="ui.regulatoryTitle">
+          <svg class="w-4 h-4 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+          <span>Indian Standards &amp; Regulatory Guidelines</span>
+        </h3>
+        <div id="authority-cards-grid" class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <!-- Injected dynamically -->
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Clean Minimal Footer -->
+  <footer class="bg-slate-900/80 border-t border-slate-800 text-slate-400 text-xs py-6 px-4 sm:px-6 no-print mt-auto">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3">
+      <div class="flex items-center gap-2">
+        <div class="w-6 h-6 rounded-md bg-amber-500 flex items-center justify-center text-slate-950 font-black text-[11px]">PBM</div>
+        <span class="font-bold text-slate-200" data-i18n="brandName">Plan &amp; BuildMetric</span>
+        <span class="text-slate-500">&bull; &copy; 2026</span>
+      </div>
+
+      <div class="flex items-center gap-4 text-slate-400 text-xs">
+        <h4 class="sr-only">Quick Links &amp; Policies</h4>
+        <button class="open-about-modal hover:text-amber-400 transition-colors" data-i18n="ui.aboutTitle">About &amp; IS Standards</button>
+        <button class="open-privacy-modal hover:text-amber-400 transition-colors" data-i18n="ui.privacyTitle">Privacy Policy</button>
+        <button class="open-disclaimer-modal hover:text-amber-400 transition-colors" data-i18n="ui.disclaimerTitle">Disclaimer</button>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Search Modal (Ctrl+K) -->
+  <div id="search-modal" class="app-modal hidden fixed inset-0 z-50 modal-backdrop bg-slate-950/80 backdrop-blur-sm items-start justify-center pt-16 sm:pt-24 p-4">
+    <div class="bg-slate-900 border border-slate-800 rounded-3xl w-full max-w-xl shadow-2xl overflow-hidden flex flex-col max-h-[80vh]" onclick="event.stopPropagation();">
+      <div class="p-4 border-b border-slate-800 flex items-center gap-3">
+        <svg class="w-5 h-5 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+        <input type="text" id="search-modal-input" placeholder="Search calculators..." class="bg-transparent border-none text-slate-100 placeholder-slate-500 text-sm focus:outline-none w-full" data-i18n-placeholder="searchPlaceholder">
+        <button id="close-search-btn" class="text-xs font-semibold px-2 py-1 rounded bg-slate-800 text-slate-400 hover:text-white">ESC</button>
+      </div>
+      <div id="search-modal-results" class="p-4 overflow-y-auto space-y-2 flex-1">
+        <!-- Injected dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Embed Widget Modal -->
+  <div id="embed-modal" class="app-modal hidden fixed inset-0 z-50 modal-backdrop bg-slate-950/80 backdrop-blur-sm items-center justify-center p-4">
+    <div class="bg-slate-900 border border-slate-800 rounded-3xl w-full max-w-2xl shadow-2xl overflow-hidden flex flex-col max-h-[90vh]" onclick="event.stopPropagation();">
+      <div class="p-5 border-b border-slate-800 flex items-center justify-between">
+        <h3 class="text-base font-bold text-white flex items-center gap-2">
+          <span>&lt;&gt; <span data-i18n="ui.embedTool">Embed Calculator</span></span>
+        </h3>
+        <button class="close-modal-btn text-slate-400 hover:text-white p-1 rounded-lg">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+        </button>
+      </div>
+      <div class="p-5 space-y-4 overflow-y-auto flex-1">
+        <p class="text-xs text-slate-400">Embed this responsive calculator widget directly into your website, blog, or contractor client portal.</p>
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block text-xs font-medium text-slate-400 mb-1">Widget Width</label>
+            <select id="embed-width-select" class="w-full bg-slate-800 border border-slate-700 rounded-xl px-3 py-2 text-xs text-slate-200">
+              <option value="100%">100% (Responsive Fluid)</option>
+              <option value="600px">600px (Medium)</option>
+              <option value="480px">480px (Compact)</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-xs font-medium text-slate-400 mb-1">Color Theme</label>
+            <select id="embed-theme-select" class="w-full bg-slate-800 border border-slate-700 rounded-xl px-3 py-2 text-xs text-slate-200">
+              <option value="dark">Dark Theme (Default)</option>
+              <option value="light">Light Theme</option>
+            </select>
+          </div>
+        </div>
+        <div>
+          <label class="block text-xs font-medium text-slate-400 mb-1">HTML Embed Snippet</label>
+          <textarea id="embed-code-textarea" readonly rows="4" class="w-full bg-slate-950 border border-slate-800 rounded-xl p-3 text-xs font-mono text-amber-300 focus:outline-none select-all"></textarea>
+        </div>
+      </div>
+      <div class="p-4 border-t border-slate-800 bg-slate-950/60 flex justify-end gap-3">
+        <button class="close-modal-btn px-4 py-2 rounded-xl text-xs font-semibold bg-slate-800 hover:bg-slate-700 text-slate-300" data-i18n="ui.closeBtn">Close</button>
+        <button id="copy-embed-btn" class="bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold px-5 py-2 rounded-xl text-xs transition-all shadow-md shadow-amber-500/20">Copy Embed Code</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Disclaimer Modal -->
+  <div id="disclaimer-modal" class="app-modal hidden fixed inset-0 z-50 modal-backdrop bg-slate-950/80 backdrop-blur-sm items-center justify-center p-4">
+    <div class="bg-slate-900 border border-slate-800 rounded-3xl w-full max-w-xl shadow-2xl p-6 flex flex-col max-h-[85vh] overflow-y-auto" onclick="event.stopPropagation();">
+      <div class="flex items-center justify-between pb-3 border-b border-slate-800 mb-3">
+        <h3 class="text-base font-bold text-white flex items-center gap-2" data-i18n="ui.disclaimerTitle">
+          <span>⚖️</span>
+          <span>Engineering, Legal &amp; Taxation Disclaimer</span>
+        </h3>
+        <button class="close-modal-btn text-slate-400 hover:text-white p-1">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+        </button>
+      </div>
+      <div class="text-xs text-slate-300 space-y-3 leading-relaxed">
+        <p><strong class="text-amber-400">1. Preliminary Estimation Safe Harbor:</strong> All calculations, material quantities, mix ratios, and cost projections generated by Plan &amp; BuildMetric are provided solely for preliminary takeoff estimation, architectural planning, and educational purposes.</p>
+        <p><strong class="text-amber-400">2. Structural &amp; Engineering Certification:</strong> Structural drawings, load-bearing assessments, soil bearing capacities, and reinforcement detailing must be certified and vetted by a licensed Structural Engineer or Registered Civil Engineer in accordance with Bureau of Indian Standards (IS 456:2000, IS 1786, IS 2185) and local municipal building bylaws before site procurement or casting.</p>
+        <p><strong class="text-amber-400">3. Taxation &amp; Legal Disclosures:</strong> Financial analytics (including 12.5% Long-Term Capital Gains Tax under the Finance Act 2024, and Section 24b/80C Home Loan tax deductions under the Income Tax Act, 1961) represent generalized mathematical estimates. Users must consult a qualified Chartered Accountant (CA) or legal professional for formal tax filings and transaction due diligence.</p>
+      </div>
+      <div class="pt-3 border-t border-slate-800 mt-4 flex justify-end">
+        <button class="close-modal-btn bg-slate-800 hover:bg-slate-700 text-white font-semibold px-4 py-1.5 rounded-xl text-xs" data-i18n="ui.closeBtn">I Understand &amp; Agree</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Privacy Modal -->
+  <div id="privacy-modal" class="app-modal hidden fixed inset-0 z-50 modal-backdrop bg-slate-950/80 backdrop-blur-sm items-center justify-center p-4">
+    <div class="bg-slate-900 border border-slate-800 rounded-3xl w-full max-w-xl shadow-2xl p-6 flex flex-col max-h-[85vh] overflow-y-auto" onclick="event.stopPropagation();">
+      <div class="flex items-center justify-between pb-3 border-b border-slate-800 mb-3">
+        <h3 class="text-base font-bold text-white flex items-center gap-2" data-i18n="ui.privacyTitle">
+          <span>🔒</span>
+          <span>100% Client-Side Privacy Policy (DPDP Act, 2023)</span>
+        </h3>
+        <button class="close-modal-btn text-slate-400 hover:text-white p-1">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+        </button>
+      </div>
+      <div class="text-xs text-slate-300 space-y-3 leading-relaxed">
+        <p><strong class="text-amber-400">1. Zero Server-Side Data Ingestion:</strong> Plan &amp; BuildMetric is engineered with an air-gapped, client-side execution architecture. All calculation inputs, dimensions, property valuations, and bill of quantities are processed exclusively in your device's browser using JavaScript ES Modules.</p>
+        <p><strong class="text-amber-400">2. No Tracking or Profiling:</strong> We do not deploy behavioral tracking cookies, canvas fingerprinting, or third-party data broker analytics.</p>
+        <p><strong class="text-amber-400">3. DPDP Act (2023) &amp; Right to Erasure:</strong> Any saved calculation history is stored strictly within your browser's sandboxed <code class="text-amber-300 font-mono">localStorage</code>. You have absolute data sovereignty and can delete all stored history anytime via the History Drawer or with 1 click below.</p>
+      </div>
+      <div class="pt-3 border-t border-slate-800 mt-4 flex items-center justify-between">
+        <button id="purge-local-data-btn" class="px-3 py-1.5 rounded-xl text-xs font-semibold text-red-400 hover:bg-red-500/10 border border-red-500/30 transition-all cursor-pointer">
+          Purge All Stored Data
+        </button>
+        <button class="close-modal-btn bg-slate-800 hover:bg-slate-700 text-white font-semibold px-4 py-1.5 rounded-xl text-xs" data-i18n="ui.closeBtn">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Language Selector Modal (11 Major Indian Regional Languages) -->
+  <div id="language-modal" class="app-modal hidden fixed inset-0 z-50 modal-backdrop bg-slate-950/80 backdrop-blur-sm items-center justify-center p-4">
+    <div class="bg-slate-900 border border-slate-800 rounded-3xl w-full max-w-2xl shadow-2xl p-6 flex flex-col max-h-[90vh]" onclick="event.stopPropagation();">
+      <div class="flex items-center justify-between pb-3 border-b border-slate-800 mb-4">
+        <div class="flex items-center gap-2">
+          <span class="text-base">🇮🇳</span>
+          <h3 class="text-base font-bold text-white" data-i18n="ui.selectLanguage">Select Indian Regional Language</h3>
+        </div>
+        <button class="close-modal-btn text-slate-400 hover:text-white p-1">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+        </button>
+      </div>
+      <p class="text-xs text-slate-400 mb-4">Choose your preferred Indian regional language for construction calculations, material purchase lists, and real estate analytics.</p>
+      
+      <div id="language-options-grid" class="grid grid-cols-2 sm:grid-cols-3 gap-2.5 overflow-y-auto p-1">
+        <!-- Rendered dynamically by app.js -->
+      </div>
+      
+      <div class="pt-4 border-t border-slate-800 mt-4 flex justify-end">
+        <button class="close-modal-btn bg-slate-800 hover:bg-slate-700 text-white font-semibold px-4 py-1.5 rounded-xl text-xs" data-i18n="ui.closeBtn">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- About Modal -->
+  <div id="about-modal" class="app-modal hidden fixed inset-0 z-50 modal-backdrop bg-slate-950/80 backdrop-blur-sm items-center justify-center p-4">
+    <div class="bg-slate-900 border border-slate-800 rounded-3xl w-full max-w-xl shadow-2xl p-6 flex flex-col" onclick="event.stopPropagation();">
+      <div class="flex items-center justify-between pb-3 border-b border-slate-800 mb-3">
+        <h3 class="text-base font-bold text-white" data-i18n="ui.aboutTitle">About Plan &amp; BuildMetric</h3>
+        <button class="close-modal-btn text-slate-400 hover:text-white p-1">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+        </button>
+      </div>
+      <div class="text-xs text-slate-300 space-y-2.5 leading-relaxed">
+        <p>Plan &amp; BuildMetric was engineered specifically for the Indian construction and real estate industry. We provide zero-latency, deterministic calculations tailored to Bureau of Indian Standards (IS 456:2000, IS 1786, IS 2185), National Building Code (NBC 2016), RERA norms, and Indian taxation rules.</p>
+        <p>Available in English and हिन्दी (Hindi) with zero installation required.</p>
+      </div>
+      <div class="pt-3 border-t border-slate-800 mt-4 flex justify-end">
+        <button class="close-modal-btn bg-slate-800 hover:bg-slate-700 text-white font-semibold px-4 py-1.5 rounded-xl text-xs" data-i18n="ui.closeBtn">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Sliding Calculation History Drawer -->
+  <aside id="history-drawer" class="fixed inset-y-0 right-0 z-50 w-full max-w-md bg-slate-900/95 backdrop-blur-xl border-l border-slate-800 shadow-2xl transform translate-x-full transition-transform duration-300 flex flex-col no-print">
+    <div class="p-4 border-b border-slate-800 flex items-center justify-between">
+      <div class="flex items-center gap-2">
+        <svg class="w-4 h-4 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+        <h3 class="text-sm font-bold text-white" data-i18n="ui.historyTitle">Calculation History</h3>
+      </div>
+      <button id="close-history-btn" class="p-1 text-slate-400 hover:text-white rounded-lg">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+      </button>
+    </div>
+
+    <!-- History Items List Container -->
+    <div id="history-items-container" class="flex-1 overflow-y-auto p-4 space-y-2.5">
+      <!-- Rendered dynamically by drawer.js -->
+    </div>
+
+    <!-- Drawer Footer Actions -->
+    <div class="p-3.5 border-t border-slate-800 bg-slate-950/60 flex items-center justify-between gap-3">
+      <button id="clear-all-history-btn" class="px-3 py-1.5 rounded-xl text-xs font-semibold text-red-400 hover:bg-red-500/10 border border-red-500/30 transition-all" data-i18n="ui.clearHistory">
+        Clear All
+      </button>
+      <button id="export-all-history-btn" class="bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold px-3.5 py-1.5 rounded-xl text-xs transition-all flex items-center gap-1.5 shadow-md shadow-amber-500/20">
+        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+        <span>Export CSV</span>
+      </button>
+    </div>
+  </aside>
+
+  <!-- Micro-Toast Notifications Container -->
+  <div id="toast-container" class="fixed bottom-5 right-5 z-50 flex flex-col gap-2 pointer-events-none"></div>
+
+  <!-- Main ES Module Application Script -->
+  <script type="module" src="js/app.js"></script>
+
+  <!-- Service Worker Registration for Instant Offline PWA Capability -->
+  <script>
+    if ('serviceWorker' in navigator && window.location.protocol.startsWith('http')) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('./sw.js').catch(() => {});
+      });
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+# Dependencies & Cache
+__pycache__/
+*.py[cod]
+*.class
+.cache/
+
+# OS Generated
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Environment & Secrets (Safety Gate)
+.env
+.env.local
+.env.*.local
+*.pem
+*.key
+
+# Temporary Logs
+*.log

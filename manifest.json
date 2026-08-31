@@ -1,0 +1,47 @@
+{
+  "name": "Plan & BuildMetric - India's #1 Construction & Real Estate Estimation Engine",
+  "short_name": "Plan & BuildMetric",
+  "description": "Professional client-side construction takeoff calculators and real estate analytics for India. IS 456 concrete, 50kg bags, brass/m3, AAC blocks, TMT steel, vitrified tiles, home loan EMI & LTCG tax.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0b0f19",
+  "theme_color": "#f59e0b",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23f59e0b'%3E%3Cpath d='M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z'/%3E%3C/svg%3E",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23f59e0b'%3E%3Cpath d='M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z'/%3E%3C/svg%3E",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["business", "finance", "productivity", "utilities"],
+  "shortcuts": [
+    {
+      "name": "Concrete & 50kg Bags",
+      "url": "/#concrete",
+      "description": "Calculate IS 456 concrete m3, Brass and 50kg cement bags"
+    },
+    {
+      "name": "Home Loan EMI & Tax",
+      "url": "/#brrrr",
+      "description": "Monthly EMI, Sec 24b & Sec 80C tax deductions"
+    },
+    {
+      "name": "Vitrified Tile Estimator",
+      "url": "/#flooring",
+      "description": "600x600, 600x1200 tile box and adhesive takeoff"
+    },
+    {
+      "name": "LTCG Property Resale Tax",
+      "url": "/#fixflip",
+      "description": "Budget 2024 revised 12.5% LTCG tax & resale profit"
+    }
+  ]
+}
