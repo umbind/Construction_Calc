@@ -1385,7 +1385,7 @@ export class App {
         this.latestCalculation.primaryMetrics.forEach(m => {
           text += `• ${getLocalizedText(m.label)}: ${getLocalizedText(m.value)}\n`;
         });
-        text += `\nCalculated at: https://planandbuildmetric.netlify.app/#${this.activeToolId}`;
+        text += `\nCalculated at: https://planandbuildmetric.netlify.app/calculators/${this.activeToolId}/`;
         const success = await copyToClipboard(text);
 
         const labelEl = container.querySelector('#copy-summary-label');

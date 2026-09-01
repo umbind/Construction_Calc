@@ -1,9 +1,5 @@
 # Plan & BuildMetric Netlify Configuration
-
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
+# Production Security & Caching Headers
 
 [[headers]]
   for = "/*"

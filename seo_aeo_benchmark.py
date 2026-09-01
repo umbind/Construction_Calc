@@ -48,7 +48,7 @@ def run_seo_aeo_benchmark():
         "Meta Author & Robots": 'name="author"' in html and 'name="robots" content="index, follow"' in html,
         "OpenGraph Tags (og:title, og:image, og:url)": all(x in html for x in ['property="og:title"', 'property="og:image"', 'property="og:url"']),
         "Twitter Card Tags": all(x in html for x in ['name="twitter:card"', 'name="twitter:title"', 'name="twitter:image"']),
-        "PWA Web Manifest Linked": '<link rel="manifest" href="manifest.json">' in html,
+        "PWA Web Manifest Linked": 'rel="manifest"' in html and ('href="/manifest.json"' in html or 'href="manifest.json"' in html),
         "Semantic Heading Structure (h1, h2, h3, h4)": all(x in html for x in ['<h2', '<h3', '<h4']),
         "XML Sitemap Reference in robots.txt": os.path.exists(os.path.join(BASE_DIR, "robots.txt")) and "Sitemap: https://planandbuildmetric.netlify.app/sitemap.xml" in open(os.path.join(BASE_DIR, "robots.txt")).read(),
         "Valid XML Sitemap with 12 URLs": os.path.exists(os.path.join(BASE_DIR, "sitemap.xml")) and len(ET.parse(os.path.join(BASE_DIR, "sitemap.xml")).getroot().findall("{http://www.sitemaps.org/schemas/sitemap/0.9}url")) >= 12

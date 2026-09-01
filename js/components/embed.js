@@ -52,10 +52,10 @@ export class EmbedManager {
     if (!this.codeEl) return;
     const width = document.getElementById('embed-width-select')?.value || '100%';
     const theme = document.getElementById('embed-theme-select')?.value || 'dark';
-    const baseUrl = 'https://planandbuildmetric.netlify.app/';
-    const embedUrl = `${baseUrl}#${this.currentToolId}?embed=true&theme=${theme}`;
+    const baseUrl = 'https://planandbuildmetric.netlify.app';
+    const embedUrl = `${baseUrl}/calculators/${this.currentToolId}/?embed=true&theme=${theme}`;
     
-    const iframeSnippet = `<iframe src="${embedUrl}" width="${width}" height="700" style="border:1px solid #334155;border-radius:12px;box-shadow:0 10px 25px -5px rgba(0,0,0,0.3);overflow:hidden;" title="Plan &amp; BuildMetric - ${this.currentToolId}" loading="lazy" frameborder="0"></iframe>\n<div style="font-size:12px;color:#64748b;margin-top:6px;font-family:sans-serif;">Powered by <a href="${baseUrl}" target="_blank" rel="noopener" style="color:#f59e0b;text-decoration:none;font-weight:600;">Plan &amp; BuildMetric</a></div>`;
+    const iframeSnippet = `<iframe src="${embedUrl}" width="${width}" height="700" style="border:1px solid #334155;border-radius:12px;box-shadow:0 10px 25px -5px rgba(0,0,0,0.3);overflow:hidden;" title="Plan &amp; BuildMetric - ${this.currentToolId}" loading="lazy" frameborder="0"></iframe>\n<div style="font-size:12px;color:#64748b;margin-top:6px;font-family:sans-serif;">Powered by <a href="${baseUrl}/" target="_blank" rel="noopener" style="color:#f59e0b;text-decoration:none;font-weight:600;">Plan &amp; BuildMetric</a></div>`;
     
     this.codeEl.value = iframeSnippet;
   }
