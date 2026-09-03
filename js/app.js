@@ -93,11 +93,9 @@ export class App {
     embedManager.init();
 
     // 5. First-Session Prompt: Ask user to confirm/choose language at start of session
-    if (langState && langState.isFirstSession) {
-      setTimeout(() => {
-        this.renderLanguageModal(true);
-        modalManager.open('language-modal');
-      }, 400);
+    if (langState && langState.shouldPrompt) {
+      this.renderLanguageModal(true);
+      modalManager.open('language-modal');
     }
   }
 
@@ -712,7 +710,7 @@ export class App {
               </span>
               <span class="text-xs text-slate-400 font-semibold">IS 456 / RERA Grounded</span>
             </div>
-            <h2 class="text-xl sm:text-2xl font-black text-white tracking-tight">${title}</h2>
+            <h1 class="text-xl sm:text-2xl font-black text-white tracking-tight">${title}</h1>
             <p class="text-xs sm:text-sm text-slate-400 mt-1 max-w-3xl leading-relaxed">${desc}</p>
           </div>
 
@@ -840,12 +838,12 @@ export class App {
       case 'concrete':
         return `
           <div class="space-y-4">
-            <div class="flex gap-3 p-1 bg-slate-800 rounded-2xl border border-slate-700/80">
+            <div class="flex gap-3 p-1 bg-slate-800 rounded-2xl border border-slate-700/80" role="radiogroup" aria-label="Concrete Structure Type">
               <label class="flex-1 text-center py-2.5 rounded-xl cursor-pointer text-xs font-bold transition-all ${inputs.shape !== 'cylinder' ? 'bg-amber-500 text-slate-950 shadow-md shadow-amber-500/20' : 'text-slate-300 hover:text-white'}">
-                <input type="radio" name="shape" value="slab" ${inputs.shape !== 'cylinder' ? 'checked' : ''} class="hidden calc-input"> ${t('Slab / Beam / Footing')}
+                <input type="radio" name="shape" value="slab" aria-label="Slab, Beam, Footing" ${inputs.shape !== 'cylinder' ? 'checked' : ''} class="hidden calc-input"> ${t('Slab / Beam / Footing')}
               </label>
               <label class="flex-1 text-center py-2.5 rounded-xl cursor-pointer text-xs font-bold transition-all ${inputs.shape === 'cylinder' ? 'bg-amber-500 text-slate-950 shadow-md shadow-amber-500/20' : 'text-slate-300 hover:text-white'}">
-                <input type="radio" name="shape" value="cylinder" ${inputs.shape === 'cylinder' ? 'checked' : ''} class="hidden calc-input"> ${t('Round RCC Column / Pile')}
+                <input type="radio" name="shape" value="cylinder" aria-label="Round RCC Column, Pile" ${inputs.shape === 'cylinder' ? 'checked' : ''} class="hidden calc-input"> ${t('Round RCC Column / Pile')}
               </label>
             </div>
 
@@ -867,8 +865,8 @@ export class App {
             `}
 
             <div>
-              <label class="block text-xs font-bold text-slate-300 mb-1.5">${t('IS 456:2000 Concrete Mix Grade')}</label>
-              <select name="mixGrade" class="calc-input w-full bg-slate-800 border border-slate-700 rounded-xl px-3.5 py-2.5 text-sm text-slate-100 font-semibold focus-ring">
+              <label for="concrete-mix-grade-select" class="block text-xs font-bold text-slate-300 mb-1.5">${t('IS 456:2000 Concrete Mix Grade')}</label>
+              <select id="concrete-mix-grade-select" name="mixGrade" aria-label="IS 456:2000 Concrete Mix Grade" class="calc-input w-full bg-slate-800 border border-slate-700 rounded-xl px-3.5 py-2.5 text-sm text-slate-100 font-semibold focus-ring">
                 <option value="M20" ${inputs.mixGrade === 'M20' || !inputs.mixGrade ? 'selected' : ''}>${t('M20 (1 : 1.5 : 3) — Standard RCC Slab, Beams & Columns')}</option>
                 <option value="M25" ${inputs.mixGrade === 'M25' ? 'selected' : ''}>${t('M25 (1 : 1 : 2) — Heavy Load RCC Foundations & Pillars')}</option>
                 <option value="M15" ${inputs.mixGrade === 'M15' ? 'selected' : ''}>${t('M15 (1 : 2 : 4) — Flooring Bed, Pathways & Plinth Base')}</option>
@@ -880,16 +878,16 @@ export class App {
 
             <div class="grid grid-cols-3 gap-3">
               <div>
-                <label class="block text-xs font-semibold text-slate-400 mb-1">${t('Cement (₹/50kg)')}</label>
-                <input type="number" name="priceCement" value="${inputs.priceCement || 380}" class="calc-input w-full bg-slate-800 border border-slate-700 rounded-xl px-3 py-2 text-sm text-slate-100 font-mono font-bold focus-ring">
+                <label for="input-price-cement" class="block text-xs font-semibold text-slate-400 mb-1">${t('Cement (₹/50kg)')}</label>
+                <input id="input-price-cement" aria-label="Cement price per 50kg bag" type="number" name="priceCement" value="${inputs.priceCement || 380}" class="calc-input w-full bg-slate-800 border border-slate-700 rounded-xl px-3 py-2 text-sm text-slate-100 font-mono font-bold focus-ring">
               </div>
               <div>
-                <label class="block text-xs font-semibold text-slate-400 mb-1">${t('M-Sand (₹/Brass)')}</label>
-                <input type="number" name="priceSand" value="${inputs.priceSand || 4500}" class="calc-input w-full bg-slate-800 border border-slate-700 rounded-xl px-3 py-2 text-sm text-slate-100 font-mono font-bold focus-ring">
+                <label for="input-price-sand" class="block text-xs font-semibold text-slate-400 mb-1">${t('M-Sand (₹/Brass)')}</label>
+                <input id="input-price-sand" aria-label="M-Sand price per brass" type="number" name="priceSand" value="${inputs.priceSand || 4500}" class="calc-input w-full bg-slate-800 border border-slate-700 rounded-xl px-3 py-2 text-sm text-slate-100 font-mono font-bold focus-ring">
               </div>
               <div>
-                <label class="block text-xs font-semibold text-slate-400 mb-1">${t('Gitti (₹/Brass)')}</label>
-                <input type="number" name="priceAggregate" value="${inputs.priceAggregate || 3800}" class="calc-input w-full bg-slate-800 border border-slate-700 rounded-xl px-3 py-2 text-sm text-slate-100 font-mono font-bold focus-ring">
+                <label for="input-price-aggregate" class="block text-xs font-semibold text-slate-400 mb-1">${t('Gitti (₹/Brass)')}</label>
+                <input id="input-price-aggregate" aria-label="Crushed stone aggregate price per brass" type="number" name="priceAggregate" value="${inputs.priceAggregate || 3800}" class="calc-input w-full bg-slate-800 border border-slate-700 rounded-xl px-3 py-2 text-sm text-slate-100 font-mono font-bold focus-ring">
               </div>
             </div>
           </div>

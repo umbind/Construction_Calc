@@ -261,3 +261,19 @@ body.rtl .ltr-only {
     break-inside: avoid;
   }
 }
+
+
+/* Zero Layout Shift (CLS) Protective Sizing */
+#category-filter-container {
+  min-height: 34px;
+}
+#calculator-tabs-bar {
+  min-height: 42px;
+}
+#active-calculator-container {
+  min-height: 640px;
+  contain-intrinsic-size: 640px;
+}
+#tools-grid {
+  min-height: 480px;
+}

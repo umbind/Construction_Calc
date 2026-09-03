@@ -6423,7 +6423,7 @@ export function setLanguage(code, confirmed = true) {
 }
 
 export function initLanguage() {
-  let isFirstSession = false;
+  let shouldPrompt = false;
   try {
     const saved = localStorage.getItem('buildmetric_lang');
     const confirmed = localStorage.getItem('buildmetric_lang_confirmed');
@@ -6431,15 +6431,16 @@ export function initLanguage() {
     if (saved && translations[saved]) {
       currentLanguage = saved;
     } else {
-      // Automatically detect and select the browser language
       currentLanguage = detectBrowserLanguage();
-      isFirstSession = !confirmed;
     }
+    // Always prompt if user has not yet confirmed their language choice
+    shouldPrompt = (confirmed !== 'true');
   } catch (e) {
     currentLanguage = detectBrowserLanguage();
+    shouldPrompt = true;
   }
   applyLanguageDirection(currentLanguage);
-  return { language: currentLanguage, isFirstSession };
+  return { language: currentLanguage, shouldPrompt };
 }
 
 export function applyLanguageDirection(langCode) {
