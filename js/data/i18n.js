@@ -6378,11 +6378,43 @@ export function getLanguage() {
   return currentLanguage;
 }
 
-export function setLanguage(code) {
+export function detectBrowserLanguage() {
+  const supported = ['en', 'hi', 'bn', 'te', 'mr', 'ta', 'gu', 'kn', 'ml', 'pa', 'or'];
+  const candidates = [];
+
+  try {
+    if (typeof navigator !== 'undefined') {
+      if (Array.isArray(navigator.languages) && navigator.languages.length > 0) {
+        candidates.push(...navigator.languages);
+      }
+      if (navigator.language) {
+        candidates.push(navigator.language);
+      }
+      if (navigator.userLanguage) {
+        candidates.push(navigator.userLanguage);
+      }
+    }
+  } catch (e) {}
+
+  for (const raw of candidates) {
+    if (!raw || typeof raw !== 'string') continue;
+    const clean = raw.toLowerCase().trim();
+    if (supported.includes(clean)) return clean;
+    const prefix = clean.split('-')[0].split('_')[0];
+    if (supported.includes(prefix)) return prefix;
+  }
+
+  return 'en';
+}
+
+export function setLanguage(code, confirmed = true) {
   if (translations[code]) {
     currentLanguage = code;
     try {
       localStorage.setItem('buildmetric_lang', code);
+      if (confirmed) {
+        localStorage.setItem('buildmetric_lang_confirmed', 'true');
+      }
     } catch (e) {}
     applyLanguageDirection(code);
     return true;
@@ -6391,17 +6423,23 @@ export function setLanguage(code) {
 }
 
 export function initLanguage() {
+  let isFirstSession = false;
   try {
     const saved = localStorage.getItem('buildmetric_lang');
+    const confirmed = localStorage.getItem('buildmetric_lang_confirmed');
+
     if (saved && translations[saved]) {
       currentLanguage = saved;
     } else {
-      currentLanguage = 'en';
+      // Automatically detect and select the browser language
+      currentLanguage = detectBrowserLanguage();
+      isFirstSession = !confirmed;
     }
   } catch (e) {
-    currentLanguage = 'en';
+    currentLanguage = detectBrowserLanguage();
   }
   applyLanguageDirection(currentLanguage);
+  return { language: currentLanguage, isFirstSession };
 }
 
 export function applyLanguageDirection(langCode) {

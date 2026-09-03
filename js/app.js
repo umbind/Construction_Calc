@@ -69,8 +69,8 @@ export class App {
   }
 
   init() {
-    // 1. Initialize State
-    initLanguage();
+    // 1. Initialize State (Browser Language Auto-Detection)
+    const langState = initLanguage();
     initCurrency();
     applyTheme(getTheme());
 
@@ -91,6 +91,14 @@ export class App {
     // 4. Initialize Subcomponents
     historyDrawer.init();
     embedManager.init();
+
+    // 5. First-Session Prompt: Ask user to confirm/choose language at start of session
+    if (langState && langState.isFirstSession) {
+      setTimeout(() => {
+        this.renderLanguageModal(true);
+        modalManager.open('language-modal');
+      }, 400);
+    }
   }
 
   showToast(message, duration = 3000) {
@@ -161,8 +169,20 @@ export class App {
     const triggerBtn = document.getElementById('lang-trigger-btn');
     if (triggerBtn) {
       triggerBtn.addEventListener('click', () => {
-        this.renderLanguageModal();
+        this.renderLanguageModal(false);
         modalManager.open('language-modal');
+      });
+    }
+
+    // Modal close buttons set confirmed state
+    const langModal = document.getElementById('language-modal');
+    if (langModal) {
+      langModal.querySelectorAll('.close-modal-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          try {
+            localStorage.setItem('buildmetric_lang_confirmed', 'true');
+          } catch (e) {}
+        });
       });
     }
 
@@ -171,17 +191,45 @@ export class App {
     if (langSelect) {
       langSelect.value = getLanguage();
       langSelect.addEventListener('change', (e) => {
-        this.applyLanguageSelection(e.target.value);
+        this.applyLanguageSelection(e.target.value, true);
       });
     }
   }
 
-  renderLanguageModal() {
+  renderLanguageModal(isFirstSession = false) {
     const grid = document.getElementById('language-options-grid');
     if (!grid) return;
 
     const current = getLanguage();
     const languages = languageGroups.indian || [];
+    const activeLangObj = languages.find(l => l.code === current) || languages[0];
+
+    // Update Auto-detected / Welcome elements
+    const banner = document.getElementById('lang-detected-banner');
+    const detectedDisplay = document.getElementById('detected-lang-display');
+    const quickBtn = document.getElementById('quick-continue-lang-btn');
+    const modalTitle = document.getElementById('lang-modal-title');
+    const modalSubtitle = document.getElementById('lang-modal-subtitle');
+
+    if (detectedDisplay) {
+      detectedDisplay.textContent = `${activeLangObj.native} (${activeLangObj.name})`;
+    }
+    if (quickBtn) {
+      quickBtn.textContent = `Continue in ${activeLangObj.native}`;
+      quickBtn.onclick = () => {
+        this.applyLanguageSelection(current, true);
+        modalManager.close('language-modal');
+      };
+    }
+
+    if (isFirstSession) {
+      if (modalTitle) modalTitle.textContent = 'Welcome! Choose Your Language / भाषा चुनें';
+      if (modalSubtitle) modalSubtitle.textContent = 'We auto-selected your browser language. You can keep it or switch below:';
+      if (banner) banner.classList.remove('hidden');
+    } else {
+      if (modalTitle) modalTitle.textContent = 'Choose Your Language / भाषा चुनें';
+      if (modalSubtitle) modalSubtitle.textContent = 'Select your preferred language for calculations & takeoff';
+    }
 
     let html = '';
     languages.forEach(lang => {
@@ -199,7 +247,7 @@ export class App {
             </div>
             <span class="text-[11px] text-slate-400 font-medium ml-6">${lang.name}</span>
           </div>
-          ${isActive ? '<span class="w-2.5 h-2.5 rounded-full bg-amber-400 shadow-sm shadow-amber-400"></span>' : ''}
+          ${isActive ? '<span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-amber-500 text-slate-950">Active</span>' : ''}
         </button>
       `;
     });
@@ -209,14 +257,14 @@ export class App {
     grid.querySelectorAll('.lang-option-card').forEach(btn => {
       btn.addEventListener('click', () => {
         const code = btn.getAttribute('data-lang-code');
-        this.applyLanguageSelection(code);
+        this.applyLanguageSelection(code, true);
         modalManager.close('language-modal');
       });
     });
   }
 
-  applyLanguageSelection(langCode) {
-    setLanguage(langCode);
+  applyLanguageSelection(langCode, confirmed = true) {
+    setLanguage(langCode, confirmed);
     const langSelect = document.getElementById('language-select');
     if (langSelect) langSelect.value = langCode;
 
