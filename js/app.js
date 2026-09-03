@@ -1270,16 +1270,17 @@ export class App {
   }
 
   renderSliderControl(name, label, value, min, max, step, unit) {
+    const inputId = `calc-num-${name}-${Math.random().toString(36).substr(2, 4)}`;
     return `
       <div class="space-y-1.5">
         <div class="flex items-center justify-between">
-          <label class="text-xs font-bold text-slate-300">${label}</label>
+          <label for="${inputId}" class="text-xs font-bold text-slate-300">${label}</label>
           <div class="flex items-center gap-1">
-            <input type="number" name="${name}" value="${value}" min="${min}" max="${max}" step="${step}" class="calc-input sync-number-input w-24 bg-slate-800 border border-slate-700 rounded-xl px-2.5 py-1 text-right text-xs font-mono font-bold text-amber-400 focus-ring">
+            <input id="${inputId}" type="number" name="${name}" value="${value}" min="${min}" max="${max}" step="${step}" aria-label="${label} (${unit})" class="calc-input sync-number-input w-24 bg-slate-800 border border-slate-700 rounded-xl px-2.5 py-1 text-right text-xs font-mono font-bold text-amber-400 focus-ring">
             <span class="text-xs text-slate-400 font-semibold">${unit}</span>
           </div>
         </div>
-        <input type="range" name="${name}" value="${value}" min="${min}" max="${max}" step="${step}" class="calc-input sync-slider-input w-full">
+        <input type="range" name="${name}" value="${value}" min="${min}" max="${max}" step="${step}" aria-label="${label} Slider" class="calc-input sync-slider-input w-full">
       </div>
     `;
   }

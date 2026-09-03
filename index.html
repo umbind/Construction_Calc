@@ -34,6 +34,8 @@
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -177,7 +179,7 @@
       </a>
 
       <!-- Quick Search Trigger (Ctrl+K) -->
-      <button id="search-trigger-btn" class="hidden md:flex items-center gap-3 bg-slate-800/80 hover:bg-slate-750 border border-slate-700 rounded-xl px-3 py-1.5 text-xs text-slate-400 hover:text-slate-200 transition-all w-48 lg:w-60 justify-between">
+      <button id="search-trigger-btn" aria-label="Quick search modal" class="hidden md:flex items-center gap-3 bg-slate-800/80 hover:bg-slate-750 border border-slate-700 rounded-xl px-3 py-1.5 text-xs text-slate-400 hover:text-slate-200 transition-all w-48 lg:w-60 justify-between">
         <div class="flex items-center gap-2">
           <svg class="w-3.5 h-3.5 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
           <span data-i18n="searchPlaceholder">Search calculators...</span>
@@ -188,7 +190,7 @@
       <!-- Utility Controls: Currency Badge, Language Switcher, History, Theme -->
       <div class="flex items-center gap-2">
         <!-- Mobile Search Icon -->
-        <button id="mobile-search-btn" class="md:hidden p-2 rounded-xl bg-slate-800 border border-slate-700 text-slate-300 hover:text-amber-400">
+        <button id="mobile-search-btn" aria-label="Search calculators" class="md:hidden p-2 rounded-xl bg-slate-800 border border-slate-700 text-slate-300 hover:text-amber-400">
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
         </button>
 
@@ -198,21 +200,21 @@
         </div>
 
         <!-- Indian Language Selector Trigger -->
-        <button id="lang-trigger-btn" class="flex items-center gap-1.5 bg-slate-800/90 hover:bg-slate-750 border border-slate-700 rounded-xl px-2.5 py-1.5 text-xs font-semibold text-slate-200 hover:text-amber-400 transition-all cursor-pointer">
+        <button id="lang-trigger-btn" aria-label="Select language" class="flex items-center gap-1.5 bg-slate-800/90 hover:bg-slate-750 border border-slate-700 rounded-xl px-2.5 py-1.5 text-xs font-semibold text-slate-200 hover:text-amber-400 transition-all cursor-pointer">
           <span class="text-xs">🌐</span>
           <span id="active-lang-label" class="font-bold text-amber-400">English</span>
           <svg class="w-3 h-3 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
         </button>
 
         <!-- Calculation History Drawer Trigger -->
-        <button id="history-btn" class="p-2 rounded-xl bg-slate-800 hover:bg-slate-750 border border-slate-700 text-slate-300 hover:text-amber-400 transition-colors" title="Calculation History">
+        <button id="history-btn" aria-label="View calculation history" class="p-2 rounded-xl bg-slate-800 hover:bg-slate-750 border border-slate-700 text-slate-300 hover:text-amber-400 transition-colors" title="Calculation History">
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
           </svg>
         </button>
 
         <!-- Theme Toggle -->
-        <button id="theme-toggle-btn" class="p-2 rounded-xl bg-slate-800 hover:bg-slate-750 border border-slate-700 text-slate-300 hover:text-amber-400 transition-colors" title="Toggle Theme">
+        <button id="theme-toggle-btn" aria-label="Toggle light and dark theme" class="p-2 rounded-xl bg-slate-800 hover:bg-slate-750 border border-slate-700 text-slate-300 hover:text-amber-400 transition-colors" title="Toggle Theme">
           <svg id="theme-icon-dark" class="w-4 h-4 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
           <svg id="theme-icon-light" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
         </button>
